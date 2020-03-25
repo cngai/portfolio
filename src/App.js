@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Nav from './components/Nav';
 
+import Welcome from './tabs/Welcome';
+
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -30,7 +32,9 @@ class App extends Component {
 					<Nav onChangeTab={this.changeTab} />
 				</NavContainer>
 				<InfoContainer>
-					<p>{currTab}</p>
+					<InfoSubcontainer>
+						<Welcome />
+					</InfoSubcontainer>
 				</InfoContainer>
 			</Container>
 		  );
@@ -43,18 +47,23 @@ const Container = styled.div`
 	height: 100vh;
 `;
 
+const InfoContainer = styled.div`
+	display: flex;
+	flex: 3;
+	justify-content: flex-start;
+	align-items: center;
+`;
+
+const InfoSubcontainer = styled.div`
+	${'' /* background-color: #D0E3F4; */}
+	margin: 0 0 0 100px;
+`;
+
 const NavContainer = styled.div`
 	display: flex;
   	background-color: #D3D3D3;
 	flex: 2;
 	justify-content: flex-end;
-	align-items: center;
-`;
-
-const InfoContainer = styled.div`
-	display: flex;
-	flex: 3;
-	justify-content: center;
 	align-items: center;
 `;
 

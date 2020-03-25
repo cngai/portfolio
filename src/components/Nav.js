@@ -27,8 +27,12 @@ class Nav extends Component {
         let navContainer = document.getElementById('NavContainer');
         let navContainerHeight = navContainer.offsetHeight;
 
+        let tabHeight = navContainerHeight / 6;
+        let sliderHeight = tabHeight / 2.0 - 10; // subtract 10 because height of slider is 20
+
         this.setState({
             navContainerHeight,
+            sliderHeight,
         });
     }
 
@@ -130,9 +134,6 @@ class Nav extends Component {
             contactOpacity,
             sliderHeight
         } = this.state;
-
-        console.log(welcomeOpacity);
-        console.log(sliderHeight);
 
         return (
         <NavContainer id='NavContainer'>
