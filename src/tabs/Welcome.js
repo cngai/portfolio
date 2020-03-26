@@ -69,8 +69,8 @@ class Welcome extends Component {
                 <Divider />
                 <BodyContainer>
                     <BodyText>
-                        I’m currently a student at UCLA studying computer science & engineering. 
-                        I’m a strong advocate for interdisciplinary pursuits. For me, that’s combining 
+                        I’m currently a senior at UCLA studying computer science & engineering. 
+                        I’m a strong advocate of interdisciplinary pursuits. For me, that’s combining 
                         engineering, art, and business. Still trying to get the hang of it though.
                     </BodyText>
                 </BodyContainer>
@@ -135,6 +135,7 @@ const HeaderText = styled.p`
     font-size: 48px;
     color: #000000;
     letter-spacing: 2px;
+    line-height: 1.5;
     margin: 20px 0 20px 0;
 `;
 
@@ -146,6 +147,7 @@ const Icon = styled.img`
 const IconContainer = styled.div`
     display: flex;
     flex-direction: row;
+    margin: 20px 0 0 0;
 `;
 
 export default Welcome;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Nav from './components/Nav';
 
 import Welcome from './tabs/Welcome';
+import Education from './tabs/Education';
 
 class App extends Component {
 	constructor(props) {
@@ -33,7 +34,16 @@ class App extends Component {
 				</NavContainer>
 				<InfoContainer>
 					<InfoSubcontainer>
-						<Welcome />
+						{
+							currTab === 'Welcome' && (
+								<Welcome />
+							)
+						}
+						{
+							currTab === 'Education' && (
+								<Education />
+							)
+						}
 					</InfoSubcontainer>
 				</InfoContainer>
 			</Container>
@@ -55,7 +65,6 @@ const InfoContainer = styled.div`
 `;
 
 const InfoSubcontainer = styled.div`
-	${'' /* background-color: #D0E3F4; */}
 	margin: 0 0 0 100px;
 `;
 
