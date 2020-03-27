@@ -135,7 +135,6 @@ const HeaderText = styled.p`
     font-size: 48px;
     color: #000000;
     letter-spacing: 2px;
-    line-height: 1.5;
     margin: 20px 0 20px 0;
 `;
 

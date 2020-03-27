@@ -61,10 +61,7 @@ class Coding extends Component {
         );
     }
 
-    createProjectSection(projectSectionObj) {
-        let project = projectSectionObj.project;
-        let idx = projectSectionObj.idx;
-
+    createProjectSection(idx) {
         let currProject = projects[idx];
 
         return (
@@ -146,10 +143,7 @@ class Coding extends Component {
         let projectSections = [];
 
         for (let i = 0; i < projects.length; i++) {
-            projectSections.push({
-                'project': projects[i],
-                'idx': i,
-            })
+            projectSections.push(i);
         }
 
         return projectSections.map(this.createProjectSection, this);
