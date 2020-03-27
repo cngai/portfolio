@@ -150,7 +150,7 @@ class Experience extends Component {
                         <SubheaderText>
                             {`${selectedExp.position} @`}
                             <br />
-                            <Link href={selectedExp.link}>
+                            <Link href={selectedExp.link} target='_blank'>
                                 <CompanyText>
                                     {selectedTab}
                                 </CompanyText>
@@ -310,7 +310,6 @@ const TabText = styled.p`
 const UnorderedList = styled.ul`
     margin: 0 0 0 0;
     padding-left: 20px;
-    ${'' /* height: 215px; */}
 `;
 
 export default Experience;

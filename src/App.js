@@ -6,13 +6,14 @@ import Nav from './components/Nav';
 import Welcome from './tabs/Welcome';
 import Education from './tabs/Education';
 import Experience from './tabs/Experience';
+import Coding from './tabs/Coding';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			currTab: 'Experience',
+			currTab: 'Welcome',
 		}
 
 		this.changeTab = this.changeTab.bind(this);
@@ -48,6 +49,11 @@ class App extends Component {
 						{
 							currTab === 'Experience' && (
 								<Experience />
+							)
+						}
+						{
+							currTab === 'Coding' && (
+								<Coding />
 							)
 						}
 					</InfoSubcontainer>
