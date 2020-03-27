@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const designs = [
     {
@@ -161,6 +161,15 @@ class Design extends Component {
     }
 }
 
+const extendDivider = keyframes`
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 65px;
+    }
+`;
+
 const DesignContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -176,6 +185,7 @@ const Divider = styled.div`
 	width: 65px;
 	height: 0;
 	border-top: 10px solid #D0E3F4;
+    animation: ${extendDivider} ease 0.4s;
 `;
 
 const GridContainer = styled.div`

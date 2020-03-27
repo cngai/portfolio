@@ -135,6 +135,15 @@ class Education extends Component {
     }
 }
 
+const extendDivider = keyframes`
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 65px;
+    }
+`
+
 const fadeOutIn = keyframes`
     0% {
         opacity: 1;
@@ -176,6 +185,7 @@ const Divider = styled.div`
 	width: 65px;
 	height: 0;
 	border-top: 10px solid #D0E3F4;
+    animation: ${extendDivider} ease 0.4s;
 `;
 
 const HeaderText = styled.p`

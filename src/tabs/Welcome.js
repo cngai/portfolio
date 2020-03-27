@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const github = '/assets/github.png';
 const githubFilled = '/assets/github-filled.png';
@@ -16,6 +16,7 @@ class Welcome extends Component {
             githubIcon: github,
             linkedinIcon: linkedin,
             mailIcon: mail,
+            dividerLength: 0,
         };
 
         this.onIconHover = this.onIconHover.bind(this);
@@ -102,6 +103,15 @@ class Welcome extends Component {
     }
 }
 
+const extendDivider = keyframes`
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 65px;
+    }
+`;
+
 const WelcomeContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -126,6 +136,7 @@ const Divider = styled.div`
 	width: 65px;
 	height: 0;
 	border-top: 10px solid #D0E3F4;
+    animation: ${extendDivider} ease 0.4s;
 `;
 
 const HeaderText = styled.p`

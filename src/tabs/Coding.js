@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const rightArrow = '/assets/next.png';
 const leftArrow = '/assets/back.png';
@@ -195,6 +195,15 @@ class Coding extends Component {
     }
 }
 
+const extendDivider = keyframes`
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 65px;
+    }
+`;
+
 const CodingContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -227,6 +236,7 @@ const Divider = styled.div`
 	width: 65px;
 	height: 0;
 	border-top: 10px solid #D0E3F4;
+    animation: ${extendDivider} ease 0.4s;
 `;
 
 const Dot = styled.div`
