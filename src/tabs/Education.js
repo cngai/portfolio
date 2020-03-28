@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import info from '../info';
 
 const selectorOptions = ['favorite', 'challenging', 'creative'];
-const classes = [
-    ['Computer Systems Architecture', 'Machine Learning', 'Engineering Ethics - Technology & Society',
-'Computer Network Fundamentals', 'Programming Languages', 'Database Systems'], ['Algorithms & Complexity',
-'Operating System Principles', 'Formal Languages & Automata Theory', 'Digital Electronic Circuits',
-'Systems and Signals'],['Computer Graphics', 'Entrepreneurship & Venture Initiation', 'Marketing Principles',
-'Design Culture', 'Design Media Histories']
-];
+const classes = info.classes;
 
 class Education extends Component {
     constructor(props) {
@@ -142,7 +137,7 @@ const extendDivider = keyframes`
     100% {
         width: 65px;
     }
-`
+`;
 
 const fadeOutIn = keyframes`
     0% {
@@ -154,7 +149,7 @@ const fadeOutIn = keyframes`
     100% {
         opacity: 1;
     }
-`
+`;
 
 const EducationContainer = styled.div`
     display: flex;

@@ -1,41 +1,13 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import info from '../info';
 
 const rightArrow = '/assets/next.png';
 const leftArrow = '/assets/back.png';
 const github = '/assets/github-filled.png';
 const link = '/assets/out.png';
 
-const projects = [
-    {
-        'title': 'Bruin Bash 2019',
-        'description': 'I built this responsive web application for Campus Events Commission as a promotional website for UCLA’s largest campuswide concert, featuring DaBaby and Masego. The site hosted information including the concert lineup, ticketing details, and FAQ, attracting over 10,000 users.',
-        'tech': 'React, Node, Express, KeystoneJS, DigitalOcean, MongoDB',
-        'external_link': 'http://www.bruinbash.ucla.edu/',
-        'github_link': null,
-    },
-    {
-        'title': 'Spotted On Bruinwalk',
-        'description': 'I collaborated with 5 other student developers to build a moderated community forum that serves as a "missed connections" platform, allowing users to submit posts, comment on posts, and filter posts by category.',
-        'tech': 'React, Node, Express, KeystoneJS, MongoDB',
-        'external_link': 'https://spotted.uclacec.com/',
-        'github_link': null,
-    },
-    {
-        'title': 'Color',
-        'description': 'Color is a creative web application built using that transforms digital drawings into musical melodies. With various customizability features, users are able to express their artistic abilities both visually and audibly.',
-        'tech': 'React, p5.js',
-        'external_link': 'https://styvone.github.io/color/',
-        'github_link': 'https://github.com/UCLA-Creative-Labs/color',
-    },
-    {
-        'title': 'CEC Mobile App',
-        'description': 'I managed a team of 10 student developers building a mobile application that displays and filters on-campus entertainment events, enabling students to RSVP to events and get notifications for them.',
-        'tech': 'React Native, MongoDB, Firebase, FireAuth',
-        'external_link': null,
-        'github_link': null,
-    },
-];
+const projects = info.projects;
 
 class Coding extends Component {
     constructor(props) {
@@ -45,8 +17,15 @@ class Coding extends Component {
             currProjectIndex: 0,
         };
 
+        this.changeProject = this.changeProject.bind(this);
         this.nextProject = this.nextProject.bind(this);
         this.prevProject = this.prevProject.bind(this);
+    }
+
+    changeProject(projIndex) {
+        this.setState({
+            currProjectIndex: projIndex,
+        });
     }
 
     createDot(dotObj) {
@@ -57,7 +36,7 @@ class Coding extends Component {
             isFilled ?
             <DotFilled key={idx} />
             :
-            <Dot key={idx} />
+            <Dot key={idx} onClick={() => this.changeProject(idx)} />
         );
     }
 
@@ -245,6 +224,7 @@ const Dot = styled.div`
     border-radius: 5px;
     margin: 0 5px 0 5px;
     border: 1px solid #D0E3F4;
+    cursor: pointer;
 `;
 
 const DotFilled = styled.div`
@@ -254,6 +234,7 @@ const DotFilled = styled.div`
     border: 1px solid #D0E3F4;
     background-color: #D0E3F4;
     margin: 0 5px 0 5px;
+    cursor: pointer;
 `;
 
 const DotsContainer = styled.div`

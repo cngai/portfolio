@@ -1,41 +1,8 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import info from '../info';
 
-const experiences = [
-    {
-        'position': 'Digital Analyst',
-        'time': 'Fall 2020 - Present',
-        'description': ['Will be utilizing modern technologies including artificial intelligence, mobile apps, advanced analytics, and cloud computing to help businesses prosper through digital experiences'],
-        'link': 'https://www.accenture.com/us-en',
-    },
-    {
-        'position': 'SWE Intern',
-        'time': 'June 2019 - September 2019',
-        'description': ['Engaged in scrum methodology as a full stack developer to help create web and mobile tools for technologically-driven veterinary care startup',
-        'Exploited internal and external APIs to build features including medical record sharing via email, SMS notifications, and membership cancellation feedback collection'],
-        'link': 'https://www.modernanimal.com/',
-    },
-    {
-        'position': 'Web Dev Director',
-        'time': 'October 2017 - Present',
-        'description': ['Managed team of 10 software developers who create web/mobile applications to maximize online marketing efficiency and promote on-campus entertainment events',
-        'Developed Bruin Bash 2019 promotional website that served as a central platform for UCLA students to gain information and obtain tickets for school-wide concert'],
-        'link': 'https://www.uclacec.com/#/',
-    },
-    {
-        'position': 'Graphic Designer',
-        'time': 'October 2017 - Present',
-        'description': ['Revitalized UI/UX design of Wienerschnitzel and Ocean Spray website to create responsive and interactive presentation of products and company background',
-        'Created expressive and professional look for marketing strategy book and Keynote presentation'],
-        'link': 'http://www.bruinadteam.com/',
-    },
-    {
-        'position': 'Frontend Developer',
-        'time': 'October 2018 - December 2018',
-        'description': ['Collaborated with team of developers and designers in production of Color, an artistic web application that transforms drawings into various sounds from several different instruments'],
-        'link': 'https://www.creativelabsucla.com/',
-    },
-];
+const experiences = info.experiences;
 
 class Experience extends Component {
     constructor(props) {
@@ -176,7 +143,7 @@ const extendDivider = keyframes`
     100% {
         width: 65px;
     }
-`
+`;
 
 const ExperienceContainer = styled.div`
     display: flex;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const exit = '/assets/cancel.png';
 const next = '/assets/next-white.png';
+const back = '/assets/back-white.png';
 
 class Modal extends Component {
     constructor(props) {
@@ -13,12 +14,30 @@ class Modal extends Component {
         };
 
         this.closeModal = this.closeModal.bind(this);
+        this.onBack = this.onBack.bind(this);
+        this.onNext = this.onNext.bind(this);
     }
 
     closeModal() {
         const { onClose } = this.props;
 
         onClose();
+    }
+
+    onBack() {
+        const { photoIndex } = this.state;
+
+        this.setState({
+            photoIndex: photoIndex - 1,
+        });
+    }
+
+    onNext() {
+        const { photoIndex } = this.state;
+
+        this.setState({
+            photoIndex: photoIndex + 1,
+        });
     }
 
     render() {
@@ -30,18 +49,31 @@ class Modal extends Component {
         return (
             <ModalContainer>
                 <ButtonContainer>
+                    <EmptyDiv />
+                    {
+                        (photoIndex !== 0) && (
+                            <Arrow src={back} onClick={this.onBack} />
+                        )
+                    }
+                    <EmptyDiv />
                 </ButtonContainer>
-                <PhotoContainer>
+                <InfoContainer>
                     <HeaderText>{designs.title}</HeaderText>
-                    <Photo src={photos[photoIndex].url}/>
+                    <PhotoContainer>
+                        <Photo src={photos[photoIndex].url}/>
+                    </PhotoContainer>
                     <DescriptionText>{photos[photoIndex].description}</DescriptionText>
-                </PhotoContainer>
+                </InfoContainer>
                 <ButtonContainer>
                     <Exit
                         src={exit}
                         onClick={this.closeModal}
                     />
-                    <Next src={next} />
+                    {
+                        (photoIndex !== photos.length - 1) && (
+                            <Arrow src={next} onClick={this.onNext}/>
+                        )
+                    }
                     <EmptyDiv />
                 </ButtonContainer>
             </ModalContainer>
@@ -57,6 +89,12 @@ const ModalContainer = styled.div`
     background: rgba(0, 0, 0, 0.75);
     height: 100vh;
     width: 100vw;
+`;
+
+const Arrow = styled.img`
+    height: 50px;
+    margin: 20px;
+    cursor: pointer;
 `;
 
 const ButtonContainer = styled.div`
@@ -101,22 +139,26 @@ const HeaderText = styled.p`
     margin: 20px 0 20px 0;
 `;
 
-const Next = styled.img`
-    height: 50px;
-    margin: 20px;
-    cursor: pointer;
-`;
-
-const Photo = styled.img`
-    height: 400px;
-`;
-
-const PhotoContainer = styled.div`
+const InfoContainer = styled.div`
     display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+`;
+
+const Photo = styled.img`
+    max-height: 70vh;
+    max-width: 70vw;
+    box-shadow: 10px 10px 20px #191919;
+`;
+
+const PhotoContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 70vw;
 `;
 
 export default Modal;

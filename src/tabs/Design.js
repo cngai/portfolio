@@ -1,40 +1,10 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import info from '../info';
 
 import Modal from '../components/Modal';
 
-const designs = [
-    {
-        'title': 'Adobe',
-        'photos': [
-            {'url': '/assets/designs/adobe/adobe-0.png', 'description': 'Test Description'}
-        ],
-    },
-    {
-        'title': 'Wienerschnitzel',
-        'photos': [
-            {'url': '/assets/designs/wienerschnitzel/ws-0.png', 'description': ''}
-        ],
-    },
-    {
-        'title': 'Ocean Spray',
-        'photos': [
-            {'url': '/assets/designs/ocean_spray/os-0.png', 'description': ''}
-        ],
-    },
-    {
-        'title': 'AdTeam',
-        'photos': [
-            {'url': '/assets/designs/flyers/flyers-0.png', 'description': ''}
-        ],
-    },
-    {
-        'title': 'Misc',
-        'photos': [
-            {'url': '/assets/designs/misc/misc-0.jpg', 'description': ''}
-        ],
-    },
-];
+const designs = info.designs;
 
 class Design extends Component {
     constructor(props) {
@@ -86,7 +56,7 @@ class Design extends Component {
             <GridItemContainer
                 key={idx}
                 isActive={isActive}
-                onClick={() => this.openModal(idx)}
+                onClick={isActive ? () => this.openModal(idx) : null}
             >
                 <GridItem color={color} isActive={isActive}>
                     {
