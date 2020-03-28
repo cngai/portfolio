@@ -30,7 +30,7 @@ const projects = [
     },
     {
         'title': 'CEC Mobile App',
-        'description': 'I managed a team of 10 student developers to build a mobile application that displays and filters on-campus entertainment events, enabling students to RSVP to events and get notifications for them.',
+        'description': 'I managed a team of 10 student developers building a mobile application that displays and filters on-campus entertainment events, enabling students to RSVP to events and get notifications for them.',
         'tech': 'React Native, MongoDB, Firebase, FireAuth',
         'external_link': null,
         'github_link': null,

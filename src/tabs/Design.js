@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import Modal from '../components/Modal';
+
 const designs = [
     {
         'title': 'Adobe',
         'photos': [
-            {'url': '/assets/designs/adobe/adobe-0.png', 'description': ''}
+            {'url': '/assets/designs/adobe/adobe-0.png', 'description': 'Test Description'}
         ],
     },
     {
@@ -39,8 +41,39 @@ class Design extends Component {
         super(props);
 
         this.state = {
-
+            width: 0,
+            height: 0,
+            topOffset: 0,
+            leftOffset: 0,
+            isModalOpen: false,
+            selectedDesign: designs[0],
         };
+
+        this.closeModal = this.closeModal.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.resize = this.handleResize.bind(this);
+    }
+
+    componentDidMount() {
+        let modalContainer = document.getElementById('DesignContainer');
+
+        this.setState({
+            topOffset: modalContainer.offsetTop,
+            leftOffset: modalContainer.offsetLeft,
+        });
+        
+        this.handleResize();
+        window.addEventListener("resize", this.resize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.resize);
+    }
+
+    closeModal() {
+        this.setState({
+            isModalOpen: false,
+        });
     }
 
     createGridItem(designObj) {
@@ -50,7 +83,11 @@ class Design extends Component {
         let isActive = (designs !== null);
 
         return (
-            <GridItemContainer key={idx} isActive={isActive}>
+            <GridItemContainer
+                key={idx}
+                isActive={isActive}
+                onClick={() => this.openModal(idx)}
+            >
                 <GridItem color={color} isActive={isActive}>
                     {
                         isActive && (
@@ -71,6 +108,20 @@ class Design extends Component {
                 }
             </GridItemContainer>
         );
+    }
+
+    handleResize() {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+    }
+
+    openModal(idx) {
+        this.setState({
+            isModalOpen: true,
+            selectedDesign: designs[idx],
+        });
     }
 
     renderRow(rowNum) {
@@ -142,8 +193,15 @@ class Design extends Component {
     }
 
     render() {
+        const {
+            isModalOpen,
+            topOffset,
+            leftOffset,
+            selectedDesign
+        } = this.state;
+
         return (
-            <DesignContainer>
+            <DesignContainer id='DesignContainer'>
                 <HeaderText>Things I've Designed:</HeaderText>
                 <Divider />
                 <BodyContainer>
@@ -156,6 +214,19 @@ class Design extends Component {
                         </Row>
                     </GridContainer>
                 </BodyContainer>
+                <ModalContainer
+                    topOffset={topOffset}
+                    leftOffset={leftOffset}
+                >
+                    {
+                        isModalOpen && (
+                            <Modal
+                                onClose={this.closeModal}
+                                designs={selectedDesign}
+                            />
+                        )
+                    }
+                </ModalContainer>
             </DesignContainer>
         );
     }
@@ -174,6 +245,7 @@ const DesignContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
 `;
 
 const BodyContainer = styled.div`
@@ -264,6 +336,16 @@ const HeaderText = styled.p`
     color: #000000;
     letter-spacing: 2px;
     margin: 20px 0 20px 0;
+`;
+
+const ModalContainer = styled.div`
+    position: absolute;
+    z-index: 3;
+
+    ${({ topOffset, leftOffset }) => `
+        top: -${topOffset}px;
+        left: -${leftOffset}px;
+    `}
 `;
 
 const Row = styled.div`
