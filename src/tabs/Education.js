@@ -174,6 +174,7 @@ const BracketText = styled.p`
 const Column = styled.div`
     display: flex;
     flex: 1;
+    padding-right: 15px;
 `;
 
 const Divider = styled.div`
@@ -196,7 +197,7 @@ const HeaderText = styled.p`
 const HeaderDetailText = styled.p`
     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
     font-family: 'Roboto', sans-serif;
-    font-size: 27px;
+    font-size: 20px;
     font-style: italic;
     color: #000000;
     letter-spacing: 1px;
@@ -228,7 +229,7 @@ const Row = styled.div`
 const SelectorContainer = styled.div`
     display: flex;
     flex-direction: row;
-    width: 205px;
+    width: 171px;
     align-items: center;
     justify-content: space-between;
 `;
@@ -237,7 +238,7 @@ const SelectorText = styled.p`
     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     color: #000000;
     letter-spacing: 2px;
     margin: 20px 0 0 0;
@@ -253,7 +254,7 @@ const SubheaderText = styled.p`
     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     color: #000000;
     letter-spacing: 2px;
     margin: 20px 0 0 0;

@@ -16,7 +16,6 @@ class Welcome extends Component {
             githubIcon: github,
             linkedinIcon: linkedin,
             mailIcon: mail,
-            dividerLength: 0,
         };
 
         this.onIconHover = this.onIconHover.bind(this);
@@ -125,7 +124,7 @@ const BodyContainer = styled.div`
 const BodyText = styled.p`
     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     color: #000000;
     letter-spacing: 2px;
     line-height: 1.5;
