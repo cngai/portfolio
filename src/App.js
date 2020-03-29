@@ -8,13 +8,14 @@ import Education from './tabs/Education';
 import Experience from './tabs/Experience';
 import Coding from './tabs/Coding';
 import Design from './tabs/Design';
+import Contact from './tabs/Contact';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			currTab: 'Design',
+			currTab: 'Welcome',
 		}
 
 		this.changeTab = this.changeTab.bind(this);
@@ -60,6 +61,11 @@ class App extends Component {
 						{
 							currTab === 'Design' && (
 								<Design />
+							)
+						}
+						{
+							currTab === 'Contact' && (
+								<Contact />
 							)
 						}
 					</InfoSubcontainer>

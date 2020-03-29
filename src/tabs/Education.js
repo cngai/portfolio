@@ -212,7 +212,7 @@ const ListContainer = styled.div`
 const ListText = styled.li`
     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: #000000;
     letter-spacing: 2px;
     line-height: 1.5;

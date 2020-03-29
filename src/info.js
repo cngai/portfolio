@@ -1,10 +1,17 @@
 const info = {
     classes: [
-        ['Computer Systems Architecture', 'Machine Learning', 'Engineering Ethics - Technology & Society',
-        'Computer Network Fundamentals', 'Programming Languages', 'Database Systems'], ['Algorithms & Complexity',
-        'Operating System Principles', 'Formal Languages & Automata Theory', 'Digital Electronic Circuits',
-        'Systems and Signals'],['Computer Graphics', 'Entrepreneurship & Venture Initiation', 'Marketing Principles',
-        'Design Culture', 'Design Media Histories']
+        [
+            'Computer Systems Architecture', 'Machine Learning', 'Engineering Ethics - Technology & Society',
+            'Computer Network Fundamentals', 'Programming Languages', 'Database Systems'
+        ],
+        [
+            'Algorithms & Complexity', 'Operating System Principles', 'Formal Languages & Automata Theory',
+            'Digital Electronic Circuits', 'Systems and Signals'
+        ],
+        [
+            'Computer Graphics', 'Entrepreneurship & Venture Initiation', 'Marketing Principles',
+            'Design Culture', 'Design Media Histories'
+        ],
     ],
 
     experiences: [
@@ -192,6 +199,10 @@ const info = {
                 },
             ],
         },
+    ],
+
+    interests: [
+        'Cooking', 'Dominic Fike', 'Her by Spike Jonze', 'Keith Haring', 'Powerlifting', 'Rocket League',
     ],
 };
 
