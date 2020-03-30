@@ -10,8 +10,6 @@ import Coding from './tabs/Coding';
 import Design from './tabs/Design';
 import Contact from './tabs/Contact';
 
-const royce = '/assets/knit.png';
-
 class App extends Component {
 	constructor(props) {
 		super(props);
