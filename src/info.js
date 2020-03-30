@@ -82,27 +82,27 @@ const info = {
     ],
 
     designs: [
-        {
-            'title': 'Adobe',
-            'photos': [
-                {
-                    'url': '/assets/designs/adobe/adobe-0.png',
-                    'description': 'Front of elevator execution for Adobe campaign 2020'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-1.png',
-                    'description': 'Back of elevator execution'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-2.png',
-                    'description': 'Out-of-home elevator execution'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-3.png',
-                    'description': 'Rube Goldberg machine at Adobe trade show'
-                },
-            ],
-        },
+        // {
+        //     'title': 'Adobe',
+        //     'photos': [
+        //         {
+        //             'url': '/assets/designs/adobe/adobe-0.png',
+        //             'description': 'Front of elevator execution for Adobe campaign 2020'
+        //         },
+        //         {
+        //             'url': '/assets/designs/adobe/adobe-1.png',
+        //             'description': 'Back of elevator execution'
+        //         },
+        //         {
+        //             'url': '/assets/designs/adobe/adobe-2.png',
+        //             'description': 'Out-of-home elevator execution'
+        //         },
+        //         {
+        //             'url': '/assets/designs/adobe/adobe-3.png',
+        //             'description': 'Rube Goldberg machine at Adobe trade show'
+        //         },
+        //     ],
+        // },
         {
             'title': 'Wienerschnitzel',
             'photos': [

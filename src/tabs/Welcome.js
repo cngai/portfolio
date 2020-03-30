@@ -75,7 +75,7 @@ class Welcome extends Component {
                     </BodyText>
                 </BodyContainer>
                 <IconContainer>
-                    <a href={'mailto: cngai1223@g.ucla.edu'}>
+                    <a href={'mailto: cngai1223@gmail.com'}>
                         <Icon
                             src={mailIcon}
                             onMouseEnter={() => this.onIconHover('Mail')}

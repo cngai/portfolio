@@ -10,6 +10,8 @@ import Coding from './tabs/Coding';
 import Design from './tabs/Design';
 import Contact from './tabs/Contact';
 
+const royce = '/assets/knit.png';
+
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -98,6 +100,10 @@ const NavContainer = styled.div`
 	flex: 2;
 	justify-content: flex-end;
 	align-items: center;
+	${'' /* background-image: url(${royce});
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center; */}
 `;
 
 export default App;

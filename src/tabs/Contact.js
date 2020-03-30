@@ -123,7 +123,7 @@ class Contact extends Component {
                     <SubheaderText>Or if you just want to talk, feel free to reach out via...</SubheaderText>
                     <IconContainer>
                         <IconWrapper>
-                            <a href={'mailto: cngai1223@g.ucla.edu'}>
+                            <a href={'mailto: cngai1223@gmail.com'}>
                                 <Icon
                                     src={mailIcon}
                                     onMouseEnter={() => this.onIconHover('Mail')}
