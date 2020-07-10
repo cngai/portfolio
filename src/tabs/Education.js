@@ -85,7 +85,7 @@ class Education extends Component {
         return (
             <EducationContainer>
                 <HeaderText>University of California,<br />Los Angeles</HeaderText>
-                <HeaderDetailText>BS, Computer Science & Engineering<br />Expected June 2020</HeaderDetailText>
+                <HeaderDetailText>BS, Computer Science & Engineering<br />Graduated June 2020</HeaderDetailText>
                 <Divider />
                 <BodyContainer>
                     <Row>

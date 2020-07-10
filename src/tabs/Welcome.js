@@ -69,7 +69,7 @@ class Welcome extends Component {
                 <Divider />
                 <BodyContainer>
                     <BodyText>
-                        I’m currently a senior at UCLA studying computer science & engineering. 
+                        I’m a UCLA alumnus with a degree in computer science & engineering. 
                         I’m a strong advocate of interdisciplinary pursuits. For me, that’s combining 
                         engineering, art, and business. Still trying to get the hang of it though.
                     </BodyText>

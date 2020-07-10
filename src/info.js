@@ -30,14 +30,14 @@ const info = {
         },
         {
             'position': 'Web Dev Director',
-            'time': 'October 2017 - Present',
+            'time': 'October 2017 - June 2020',
             'description': ['Managed team of 10 software developers who create web/mobile applications to maximize online marketing efficiency and promote on-campus entertainment events',
             'Developed Bruin Bash 2019 promotional website that served as a central platform for UCLA students to gain information and obtain tickets for school-wide concert'],
             'link': 'https://www.uclacec.com/#/',
         },
         {
             'position': 'Graphic Designer',
-            'time': 'October 2017 - Present',
+            'time': 'October 2017 - June 2020',
             'description': ['Revitalized UI/UX design of Wienerschnitzel and Ocean Spray website to create responsive and interactive presentation of products and company background',
             'Created expressive and professional look for marketing strategy book and Keynote presentation'],
             'link': 'http://www.bruinadteam.com/',
@@ -82,27 +82,27 @@ const info = {
     ],
 
     designs: [
-        // {
-        //     'title': 'Adobe',
-        //     'photos': [
-        //         {
-        //             'url': '/assets/designs/adobe/adobe-0.png',
-        //             'description': 'Front of elevator execution for Adobe campaign 2020'
-        //         },
-        //         {
-        //             'url': '/assets/designs/adobe/adobe-1.png',
-        //             'description': 'Back of elevator execution'
-        //         },
-        //         {
-        //             'url': '/assets/designs/adobe/adobe-2.png',
-        //             'description': 'Out-of-home elevator execution'
-        //         },
-        //         {
-        //             'url': '/assets/designs/adobe/adobe-3.png',
-        //             'description': 'Rube Goldberg machine at Adobe trade show'
-        //         },
-        //     ],
-        // },
+        {
+            'title': 'Adobe',
+            'photos': [
+                {
+                    'url': '/assets/designs/adobe/adobe-0.png',
+                    'description': 'Front of elevator execution for Adobe campaign 2020'
+                },
+                {
+                    'url': '/assets/designs/adobe/adobe-1.png',
+                    'description': 'Back of elevator execution'
+                },
+                {
+                    'url': '/assets/designs/adobe/adobe-2.png',
+                    'description': 'Out-of-home elevator execution'
+                },
+                {
+                    'url': '/assets/designs/adobe/adobe-3.png',
+                    'description': 'Rube Goldberg machine at Adobe trade show'
+                },
+            ],
+        },
         {
             'title': 'Wienerschnitzel',
             'photos': [
@@ -174,11 +174,11 @@ const info = {
             'title': 'Misc',
             'photos': [
                 {
-                    'url': '/assets/designs/misc/misc-0.jpg',
+                    'url': '/assets/designs/misc/misc-0.png',
                     'description': 'Gatorade redesign ad for AdTeam application'
                 },
                 {
-                    'url': '/assets/designs/misc/misc-1.jpg',
+                    'url': '/assets/designs/misc/misc-1.png',
                     'description': 'Pikapp Fall 2018 rush FB banner'
                 },
                 {
@@ -190,11 +190,11 @@ const info = {
                     'description': 'Keith Haring-inspired CEC logo'
                 },
                 {
-                    'url': '/assets/designs/misc/misc-4.jpg',
+                    'url': '/assets/designs/misc/misc-4.png',
                     'description': 'Black & white Michael Phelps acrylic painting'
                 },
                 {
-                    'url': '/assets/designs/misc/misc-5.JPG',
+                    'url': '/assets/designs/misc/misc-5.png',
                     'description': 'Banksy-inspired soldier acrylic painting'
                 },
             ],
