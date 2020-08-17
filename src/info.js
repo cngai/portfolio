@@ -17,7 +17,7 @@ const info = {
     experiences: [
         {
             'position': 'Digital Analyst',
-            'time': 'Fall 2020 - Present',
+            'time': 'Winter 2021 - Present',
             'description': ['Will be utilizing modern technologies including artificial intelligence, mobile apps, advanced analytics, and cloud computing to help businesses prosper through digital experiences'],
             'link': 'https://www.accenture.com/us-en',
         },
