@@ -11,7 +11,7 @@ class MobileExperience extends Component {
     }
 
     render() {
-        let { height } = this.props;
+        const { height } = this.props;
 
         return (
             <ExperienceContainer height={height} >

@@ -11,7 +11,8 @@ class MobileContact extends Component {
     }
 
     render() {
-        let { height } = this.props;
+        const { height } = this.props;
+        
         return (
             <ContactContainer height={height} >
                 <div>Contact</div>

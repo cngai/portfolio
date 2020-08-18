@@ -11,7 +11,7 @@ class MobileEducation extends Component {
     }
 
     render() {
-        let { height } = this.props;
+        const { height } = this.props;
 
         return (
             <EducationContainer height={height} >

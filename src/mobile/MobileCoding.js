@@ -11,7 +11,7 @@ class MobileCoding extends Component {
     }
 
     render() {
-        let { height } = this.props;
+        const { height } = this.props;
 
         return (
             <CodingContainer height={height} >

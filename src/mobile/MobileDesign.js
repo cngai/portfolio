@@ -11,7 +11,7 @@ class MobileDesign extends Component {
     }
 
     render() {
-        let { height } = this.props;
+        const { height } = this.props;
 
         return (
             <DesignContainer height={height} >
