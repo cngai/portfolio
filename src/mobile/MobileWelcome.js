@@ -28,6 +28,10 @@ const WelcomeContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: red;
+
+    ${({ height }) => `
+        height: ${height}px;
+    `}
 `;
 
 export default MobileWelcome;

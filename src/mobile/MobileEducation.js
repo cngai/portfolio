@@ -11,8 +11,10 @@ class MobileEducation extends Component {
     }
 
     render() {
+        let { height } = this.props;
+
         return (
-            <EducationContainer>
+            <EducationContainer height={height} >
                 <div>Education</div>
             </EducationContainer>
         );
@@ -26,6 +28,10 @@ const EducationContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: blue;
+
+    ${({ height }) => `
+        height: ${height}px;
+    `}
 `;
 
 export default MobileEducation;

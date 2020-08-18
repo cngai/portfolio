@@ -25,16 +25,20 @@ class App extends Component {
 
 		this.state = {
 			currTab: 'Welcome',
+			curMobileTab: 'Welcome',
 			width: 0,
+			height: 0,
 		}
 
 		this.changeTab = this.changeTab.bind(this);
+		this.changeMobileTab = this.changeMobileTab.bind(this);
 		this.handleResize = this.handleResize.bind(this);
 	}
 
 	componentDidMount() {
         this.handleResize();
 		window.addEventListener('resize', this.handleResize);
+		window.addEventListener('scroll', this.changeMobileTab);
 	}
 	
 	componentWillUnmount() {
@@ -48,30 +52,75 @@ class App extends Component {
 		});
 	}
 
+	/* move tab on MobileNav if scroll to new section */
+	changeMobileTab() {
+		const { height } = this.state;
+
+		let mobileNavHeight = 75;
+		let pageHeight = height - mobileNavHeight;
+		let currMobileTab = null;
+		let currPageIndex = Math.floor((window.scrollY / pageHeight) + 0.5);
+		
+		switch(currPageIndex) {
+			case 0:
+				currMobileTab = 'Welcome';
+				break;
+			case 1:
+				currMobileTab = 'Education';
+				break;
+			case 2:
+				currMobileTab = 'Experience';
+				break;
+			case 3:
+				currMobileTab = 'Coding';
+				break;
+			case 4:
+				currMobileTab = 'Design';
+				break;
+			case 5:
+				currMobileTab = 'Contact';
+				break;
+			default:
+				break;
+		}
+
+		this.setState({
+			currMobileTab,
+		});
+	}
+
 	handleResize() {
         this.setState({
-            width: window.innerWidth,
+			width: window.innerWidth,
+			height: window.innerHeight,
         });
     }
 
 	render() {
-		const { currTab, width } = this.state;
+		const {
+			currTab,
+			currMobileTab,
+			width,
+			height
+		} = this.state;
 
 		const isMobile = width < MOBILE_WIDTH;
+		let mobileNavHeight = 75;
+		let pageHeight = height - mobileNavHeight;
 
 		return (
 			<div>
 				{
 					isMobile ? (
 						<MobileContainer>
-							<MobileNav />
+							<MobileNav currTab={currMobileTab} />
 							<MobileContent>
-								<MobileWelcome />
-								<MobileEducation />
-								<MobileExperience />
-								<MobileCoding />
-								<MobileDesign />
-								<MobileContact />
+								<MobileWelcome height={pageHeight} />
+								<MobileEducation height={pageHeight} />
+								<MobileExperience height={pageHeight} />
+								<MobileCoding height={pageHeight} />
+								<MobileDesign height={pageHeight} />
+								<MobileContact height={pageHeight} />
 							</MobileContent>
 						</MobileContainer>
 					) : (
@@ -141,15 +190,16 @@ const InfoSubcontainer = styled.div`
 const MobileContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
 `;
 
 const MobileContent = styled.div`
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	width: 100%;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
+	margin: 75px 0 0 0;		/* MobileNav component is 75px tall */
 `;
 
 const NavContainer = styled.div`

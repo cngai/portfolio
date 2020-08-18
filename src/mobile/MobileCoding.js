@@ -11,8 +11,10 @@ class MobileCoding extends Component {
     }
 
     render() {
+        let { height } = this.props;
+
         return (
-            <CodingContainer>
+            <CodingContainer height={height} >
                 <div>Coding</div>
             </CodingContainer>
         );
@@ -26,6 +28,10 @@ const CodingContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: blue;
+
+    ${({ height }) => `
+        height: ${height}px;
+    `}
 `;
 
 export default MobileCoding;

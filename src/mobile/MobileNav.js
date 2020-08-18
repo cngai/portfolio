@@ -6,13 +6,16 @@ class MobileNav extends Component {
         super(props);
 
         this.state = {
-            currTab: 'Welcome',
             width: 0,
             welcomeTabWidth: 0,
+            educationTabWidth: 0,
+            experienceTabWidth: 0,
+            codingTabWidth: 0,
+            designTabWidth: 0,
             contactTabWidth: 0,
+            tapeOffset: 0,
         };
 
-        this.adjustScrollOffset = this.adjustScrollOffset.bind(this);
         this.handleResize = this.handleResize.bind(this);
     }
 
@@ -21,54 +24,24 @@ class MobileNav extends Component {
         window.addEventListener('resize', this.handleResize);
 
         let welcomeTab = document.getElementById('WelcomeTab');
-        let welcomeTabWidth = welcomeTab.offsetWidth;
+        let educationTab = document.getElementById('EducationTab');
+        let experienceTab = document.getElementById('ExperienceTab');
+        let codingTab = document.getElementById('CodingTab');
+        let designTab = document.getElementById('DesignTab');
         let contactTab = document.getElementById('ContactTab');
-        let contactTabWidth = contactTab.offsetWidth;
 
         this.setState({
-            welcomeTabWidth,
-            contactTabWidth,
+            welcomeTabWidth: welcomeTab.offsetWidth,
+            educationTabWidth: educationTab.offsetWidth,
+            experienceTabWidth: experienceTab.offsetWidth,
+            codingTabWidth: codingTab.offsetWidth,
+            designTabWidth: designTab.offsetWidth,
+            contactTabWidth: contactTab.offsetWidth,
         });
 	}
 	
 	componentWillUnmount() {
         window.removeEventListener('resize', this.handleResize);
-    }
-
-    /* automatically scroll to specific offset so NavText is centered */
-    adjustScrollOffset() {
-        console.log('hello');
-        const { welcomeTabWidth, width } = this.state;
-
-        let tabContainer = document.getElementById('TabContainer');
-        let educationTab = document.getElementById('EducationTab');
-        let experienceTab = document.getElementById('ExperienceTab');
-        let codingTab = document.getElementById('CodingTab');
-        let designTab = document.getElementById('DesignTab');
-
-        const leftMargin = this.computeTabContainerMargins().leftMargin;
-
-        let marginWidth = 40;
-        let educationInterval = leftMargin + (welcomeTabWidth + marginWidth);   // marks the beginning of the education interval
-        let experienceInterval = educationInterval + educationTab.offsetWidth + marginWidth;
-        let codingInterval = experienceInterval + experienceTab.offsetWidth + marginWidth;
-        let designInterval = codingInterval + codingTab.offsetWidth + marginWidth;
-        let contactInterval = designInterval + designTab.offsetWidth + marginWidth;
-        
-        let centerLine = tabContainer.scrollLeft + (width / 2);
-        if (centerLine < educationInterval) {
-            console.log('Welcome');
-        } else if (centerLine >= educationInterval && centerLine < experienceInterval) {
-            console.log('Education');
-        } else if (centerLine >= experienceInterval && centerLine < codingInterval) {
-            console.log('Experience');
-        } else if (centerLine >= codingInterval && centerLine < designInterval) {
-            console.log('Coding');
-        } else if (centerLine >= designInterval && centerLine < contactInterval) {
-            console.log('Design');
-        } else {
-            console.log('Contact');
-        }
     }
 
     computeTabContainerMargins() {
@@ -78,14 +51,43 @@ class MobileNav extends Component {
             width,
         } = this.state;
 
-        let marginWidth = 40;
-        let leftMargin = (width - (welcomeTabWidth + marginWidth)) / 2;
-        let rightMargin = (width - (contactTabWidth + marginWidth)) / 2;
+        const marginWidth = 40;
+        let leftPadding = (width - (welcomeTabWidth + marginWidth)) / 2;
+        let rightPadding = (width - (contactTabWidth + marginWidth)) / 2;
 
         return ({
-            'leftMargin': leftMargin,
-            'rightMargin': rightMargin,
+            'leftPadding': leftPadding,
+            'rightPadding': rightPadding,
         });
+    }
+
+    computeTapeOffset(currTab) {
+        const {
+            welcomeTabWidth,
+            educationTabWidth,
+            experienceTabWidth,
+            codingTabWidth,
+            designTabWidth,
+            contactTabWidth,
+        } = this.state;
+
+        const marginWidth = 40;
+        const educationOffset = marginWidth + 0.5 * (welcomeTabWidth + educationTabWidth);
+        const experienceOffset = marginWidth + educationOffset + 0.5 * (educationTabWidth + experienceTabWidth);
+        const codingOffset = marginWidth + experienceOffset + 0.5 * (experienceTabWidth + codingTabWidth);
+        const designOffset = marginWidth + codingOffset + 0.5 * (codingTabWidth + designTabWidth);
+        const contactOffset = marginWidth + designOffset + 0.5 * (designTabWidth + contactTabWidth);
+
+        let offsetDict = {
+            'Welcome': 0,
+            'Education': educationOffset,
+            'Experience': experienceOffset,
+            'Coding': codingOffset,
+            'Design': designOffset,
+            'Contact': contactOffset,
+        };
+
+        return offsetDict[currTab];
     }
 
     handleResize() {
@@ -95,17 +97,18 @@ class MobileNav extends Component {
     }
 
     render() {
-        const leftMargin = this.computeTabContainerMargins().leftMargin;
-        const rightMargin = this.computeTabContainerMargins().rightMargin;
+        const { currTab } = this.props;
+
+        const leftPadding = this.computeTabContainerMargins().leftPadding;
+        const rightPadding = this.computeTabContainerMargins().rightPadding;
+        let tapeOffset = this.computeTapeOffset(currTab);
 
         return (
-            <NavContainer
-                onScroll={this.adjustScrollOffset}
-                id='TabContainer'
-            >
-                <TabContainer
-                    leftMargin={leftMargin}
-                    rightMargin={rightMargin}
+            <NavContainer>
+                <NavTape
+                    paddingLeft={leftPadding}
+                    paddingRight={rightPadding}
+                    offset={tapeOffset}
                 >
                     <NavText id='WelcomeTab'> welcome </NavText>
                     <NavText id='EducationTab'> education </NavText>
@@ -113,7 +116,7 @@ class MobileNav extends Component {
                     <NavText id='CodingTab'> coding </NavText>
                     <NavText id='DesignTab'> design </NavText>
                     <NavText id='ContactTab'> contact </NavText>
-                </TabContainer>
+                </NavTape>
             </NavContainer>
         );
     }
@@ -124,7 +127,22 @@ const NavContainer = styled.div`
     width: 100vw;
     background-color: #D3D3D3;
     align-items: center;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    position: fixed;
+    height: 75px;
+`;
+
+const NavTape = styled.div`
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    transition: left 1s;
+    justify-content: center;
+    
+    ${({ offset, paddingLeft, paddingRight }) => `
+        left: -${offset}px;
+        padding: 0 ${paddingRight}px 0 ${paddingLeft}px;
+    `}
 `;
 
 const NavText = styled.p`
@@ -134,19 +152,7 @@ const NavText = styled.p`
     font-size: 30px;
     color: #FFFFFF;
     letter-spacing: 5px;
-    cursor: pointer;
     margin: 0 20px 0 20px;
-`;
-
-const TabContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 20px 0 20px 0;
-
-    ${({ leftMargin, rightMargin }) => `
-        padding: 0 ${rightMargin}px 0 ${leftMargin}px;
-    `}
 `;
 
 export default MobileNav;

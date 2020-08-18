@@ -11,8 +11,9 @@ class MobileContact extends Component {
     }
 
     render() {
+        let { height } = this.props;
         return (
-            <ContactContainer>
+            <ContactContainer height={height} >
                 <div>Contact</div>
             </ContactContainer>
         );
@@ -26,6 +27,10 @@ const ContactContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: blue;
+
+    ${({ height }) => `
+        height: ${height}px;
+    `}
 `;
 
 export default MobileContact;
