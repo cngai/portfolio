@@ -110,12 +110,48 @@ class MobileNav extends Component {
                     paddingRight={rightPadding}
                     offset={tapeOffset}
                 >
-                    <NavText id='WelcomeTab'> welcome </NavText>
-                    <NavText id='EducationTab'> education </NavText>
-                    <NavText id='ExperienceTab'> experience </NavText>
-                    <NavText id='CodingTab'> coding </NavText>
-                    <NavText id='DesignTab'> design </NavText>
-                    <NavText id='ContactTab'> contact </NavText>
+                    <NavText
+                        id='WelcomeTab'
+                        currOpacity={currTab === 'Welcome' ? 1.0 : 0.4}
+                        currFontSize={currTab === 'Welcome' ? 30 : 20}
+                    >
+                        welcome
+                    </NavText>
+                    <NavText
+                        id='EducationTab'
+                        currOpacity={currTab === 'Education' ? 1.0 : 0.4}
+                        currFontSize={currTab === 'Education' ? 30 : 20}
+                    >
+                        education
+                    </NavText>
+                    <NavText
+                        id='ExperienceTab'
+                        currOpacity={currTab === 'Experience' ? 1.0 : 0.4}
+                        currFontSize={currTab === 'Experience' ? 30 : 20}
+                    >
+                        experience
+                    </NavText>
+                    <NavText
+                        id='CodingTab'
+                        currOpacity={currTab === 'Coding' ? 1.0 : 0.4}
+                        currFontSize={currTab === 'Coding' ? 30 : 20}
+                    >
+                        coding
+                    </NavText>
+                    <NavText
+                        id='DesignTab'
+                        currOpacity={currTab === 'Design' ? 1.0 : 0.4}
+                        currFontSize={currTab === 'Design' ? 30 : 20}
+                    >
+                        design
+                    </NavText>
+                    <NavText
+                        id='ContactTab'
+                        currOpacity={currTab === 'Contact' ? 1.0 : 0.4}
+                        currFontSize={currTab === 'Contact' ? 30 : 20}
+                    >
+                        contact
+                    </NavText>
                 </NavTape>
             </NavContainer>
         );
@@ -138,6 +174,7 @@ const NavTape = styled.div`
     position: absolute;
     transition: left 1s;
     justify-content: center;
+    align-items: center;
     
     ${({ offset, paddingLeft, paddingRight }) => `
         left: -${offset}px;
@@ -149,10 +186,15 @@ const NavText = styled.p`
     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
     color: #FFFFFF;
     letter-spacing: 5px;
     margin: 0 20px 0 20px;
+    transition: opacity 1s, font-size 1s;
+
+    ${({ currOpacity, currFontSize }) => `
+        opacity: ${currOpacity};
+        font-size: ${currFontSize}px;
+    `}
 `;
 
 export default MobileNav;
