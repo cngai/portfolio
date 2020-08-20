@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Swipe from 'react-easy-swipe';
 import info from '../info';
 
 const classes = info.classes;
@@ -12,6 +13,9 @@ class MobileEducation extends Component {
             currSelectorIndex: 0,
             contentContainerWidth: 0,
         };
+
+        this.onSwipeLeft = this.onSwipeLeft.bind(this);
+        this.onSwipeRight = this.onSwipeRight.bind(this);
     }
 
     componentDidMount() {
@@ -32,6 +36,26 @@ class MobileEducation extends Component {
             :
             <Dot key={idx} />
         );
+    }
+
+    onSwipeLeft() {
+        const { currSelectorIndex } = this.state;
+
+        if ((currSelectorIndex + 1) <= (classes.length - 1)) {
+            this.setState({
+                currSelectorIndex: currSelectorIndex + 1,
+            });
+        }
+    }
+
+    onSwipeRight() {
+        const { currSelectorIndex } = this.state;
+
+        if ((currSelectorIndex - 1) >= 0) {
+            this.setState({
+                currSelectorIndex: currSelectorIndex - 1,
+            });
+        }
     }
 
     renderDots() {
@@ -72,33 +96,23 @@ class MobileEducation extends Component {
                                 <BracketText>{`{`}</BracketText>
                                 <TapeContainer>
                                     <SelectorTape offset={selectorTapeOffset}>
-                                        <SelectorText>creative</SelectorText>
                                         <SelectorText>favorite</SelectorText>
                                         <SelectorText>challenging</SelectorText>
+                                        <SelectorText>creative</SelectorText>
                                     </SelectorTape>
                                 </TapeContainer>
                                 <BracketText>{`}`}</BracketText>
                             </SelectorContainer>
                             <SubheaderText>classes:</SubheaderText>
                         </Row>
-                        <ListContainer width={contentContainerWidth}>
-                            <ListTape offset={listTapeOffset}>
-                                <ListSlide width={contentContainerWidth}>
-                                    <UnorderedList>
-                                        <ListText>{classList[0]}</ListText>
-                                        <ListText>{classList[1]}</ListText>
-                                        <ListText>{classList[2]}</ListText>
-                                        <ListText>{classList[3]}</ListText>
-                                        <ListText>{classList[4]}</ListText>
-                                        { classList.length === 6 &&
-                                            (
-                                                <ListText>{classList[5]}</ListText>
-                                            )
-                                        }
-                                    </UnorderedList>
-                                </ListSlide>
-                                <ListSlide width={contentContainerWidth}>
-                                    <UnorderedList>
+                        <Swipe
+                            onSwipeLeft={this.onSwipeLeft}
+                            onSwipeRight={this.onSwipeRight}
+                        >
+                            <ListContainer width={contentContainerWidth}>
+                                <ListTape offset={listTapeOffset}>
+                                    <ListSlide width={contentContainerWidth}>
+                                        <UnorderedList>
                                             <ListText>{classList[0]}</ListText>
                                             <ListText>{classList[1]}</ListText>
                                             <ListText>{classList[2]}</ListText>
@@ -109,24 +123,39 @@ class MobileEducation extends Component {
                                                     <ListText>{classList[5]}</ListText>
                                                 )
                                             }
-                                    </UnorderedList>
-                                </ListSlide>
-                                <ListSlide width={contentContainerWidth}>
-                                    <UnorderedList>
-                                        <ListText>{classList[0]}</ListText>
-                                        <ListText>{classList[1]}</ListText>
-                                        <ListText>{classList[2]}</ListText>
-                                        <ListText>{classList[3]}</ListText>
-                                        <ListText>{classList[4]}</ListText>
-                                        { classList.length === 6 &&
-                                            (
-                                                <ListText>{classList[5]}</ListText>
-                                            )
-                                        }
-                                    </UnorderedList>
-                                </ListSlide>
-                            </ListTape>
-                        </ListContainer>
+                                        </UnorderedList>
+                                    </ListSlide>
+                                    <ListSlide width={contentContainerWidth}>
+                                        <UnorderedList>
+                                                <ListText>{classList[0]}</ListText>
+                                                <ListText>{classList[1]}</ListText>
+                                                <ListText>{classList[2]}</ListText>
+                                                <ListText>{classList[3]}</ListText>
+                                                <ListText>{classList[4]}</ListText>
+                                                { classList.length === 6 &&
+                                                    (
+                                                        <ListText>{classList[5]}</ListText>
+                                                    )
+                                                }
+                                        </UnorderedList>
+                                    </ListSlide>
+                                    <ListSlide width={contentContainerWidth}>
+                                        <UnorderedList>
+                                            <ListText>{classList[0]}</ListText>
+                                            <ListText>{classList[1]}</ListText>
+                                            <ListText>{classList[2]}</ListText>
+                                            <ListText>{classList[3]}</ListText>
+                                            <ListText>{classList[4]}</ListText>
+                                            { classList.length === 6 &&
+                                                (
+                                                    <ListText>{classList[5]}</ListText>
+                                                )
+                                            }
+                                        </UnorderedList>
+                                    </ListSlide>
+                                </ListTape>
+                            </ListContainer>
+                        </Swipe>
                     </BodyContainer>
                     <DotsContainer>
                         {this.renderDots()}
@@ -183,7 +212,6 @@ const Dot = styled.div`
     border-radius: 5px;
     margin: 0 5px 0 5px;
     border: 1px solid #D0E3F4;
-    cursor: pointer;
 `;
 
 const DotFilled = styled.div`
@@ -193,7 +221,6 @@ const DotFilled = styled.div`
     border: 1px solid #D0E3F4;
     background-color: #D0E3F4;
     margin: 0 5px 0 5px;
-    cursor: pointer;
 `;
 
 const DotsContainer = styled.div`
@@ -227,7 +254,7 @@ const HeaderDetailText = styled.p`
 const ListContainer = styled.div`
     display: flex;
     position: relative;
-    overflow: scroll;
+    overflow: hidden;
     height: 120px;
     
     ${({ width }) => `
@@ -248,6 +275,7 @@ const ListTape = styled.div`
     display: flex;
     flex-direction: row;
     position: absolute;
+    transition: left 0.4s;
 
     ${({ offset }) => `
         left: -${offset}px;
@@ -282,6 +310,7 @@ const SelectorTape = styled.div`
     display: flex;
     flex-direction: row;
     position: absolute;
+    transition: left 0.4s;
 
     ${({ offset }) => `
         left: -${offset}px;
