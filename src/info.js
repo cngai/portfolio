@@ -17,12 +17,14 @@ const info = {
     experiences: [
         {
             'position': 'Digital Analyst',
+            'company_name': 'Accenture',
             'time': 'Winter 2021 - Present',
             'description': ['Will be utilizing modern technologies including artificial intelligence, mobile apps, advanced analytics, and cloud computing to help businesses prosper through digital experiences'],
             'link': 'https://www.accenture.com/us-en',
         },
         {
             'position': 'SWE Intern',
+            'company_name': 'Modern Animal',
             'time': 'June 2019 - September 2019',
             'description': ['Engaged in scrum methodology as a full stack developer to help create web and mobile tools for technologically-driven veterinary care startup',
             'Exploited internal and external APIs to build features including medical record sharing via email, SMS notifications, and membership cancellation feedback collection'],
@@ -30,6 +32,7 @@ const info = {
         },
         {
             'position': 'Web Dev Director',
+            'company_name': 'CEC',
             'time': 'October 2017 - June 2020',
             'description': ['Managed team of 10 software developers who create web/mobile applications to maximize online marketing efficiency and promote on-campus entertainment events',
             'Developed Bruin Bash 2019 promotional website that served as a central platform for UCLA students to gain information and obtain tickets for school-wide concert'],
@@ -37,6 +40,7 @@ const info = {
         },
         {
             'position': 'Graphic Designer',
+            'company_name': 'Bruin AdTeam',
             'time': 'October 2017 - June 2020',
             'description': ['Revitalized UI/UX design of Wienerschnitzel and Ocean Spray website to create responsive and interactive presentation of products and company background',
             'Created expressive and professional look for marketing strategy book and Keynote presentation'],
@@ -44,6 +48,7 @@ const info = {
         },
         {
             'position': 'Frontend Developer',
+            'company_name': 'Creative Labs',
             'time': 'October 2018 - December 2018',
             'description': ['Collaborated with team of developers and designers in production of Color, an artistic web application that transforms drawings into various sounds from several different instruments'],
             'link': 'https://www.creativelabsucla.com/',
