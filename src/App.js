@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Swipe from 'react-easy-swipe';
 
 import Nav from './components/Nav';
 import Welcome from './tabs/Welcome';
@@ -25,20 +26,20 @@ class App extends Component {
 
 		this.state = {
 			currTab: 'Welcome',
-			curMobileTab: 'Welcome',
+			currMobileTabIndex: 0,
 			width: 0,
 			height: 0,
 		}
 
 		this.changeTab = this.changeTab.bind(this);
-		this.changeMobileTab = this.changeMobileTab.bind(this);
 		this.handleResize = this.handleResize.bind(this);
+		this.onSwipeDown = this.onSwipeDown.bind(this);
+		this.onSwipeUp = this.onSwipeUp.bind(this);
 	}
 
 	componentDidMount() {
         this.handleResize();
 		window.addEventListener('resize', this.handleResize);
-		window.addEventListener('scroll', this.changeMobileTab);
 	}
 	
 	componentWillUnmount() {
@@ -52,76 +53,67 @@ class App extends Component {
 		});
 	}
 
-	/* move tab on MobileNav if scroll to new section */
-	changeMobileTab() {
-		const { height } = this.state;
-
-		let mobileNavHeight = 75;
-		let pageHeight = height - mobileNavHeight;
-		let currMobileTab = null;
-		let currPageIndex = Math.floor((window.scrollY / pageHeight) + 0.5);
-		
-		switch(currPageIndex) {
-			case 0:
-				currMobileTab = 'Welcome';
-				break;
-			case 1:
-				currMobileTab = 'Education';
-				break;
-			case 2:
-				currMobileTab = 'Experience';
-				break;
-			case 3:
-				currMobileTab = 'Coding';
-				break;
-			case 4:
-				currMobileTab = 'Design';
-				break;
-			case 5:
-				currMobileTab = 'Contact';
-				break;
-			default:
-				break;
-		}
-
-		this.setState({
-			currMobileTab,
-		});
-	}
-
 	handleResize() {
         this.setState({
 			width: window.innerWidth,
 			height: window.innerHeight,
         });
-    }
+	}
+
+	onSwipeDown() {
+		const { currMobileTabIndex } = this.state;
+
+		if (currMobileTabIndex > 0) {
+			this.setState({
+				currMobileTabIndex: currMobileTabIndex - 1,
+			});
+		}
+	}
+	
+	onSwipeUp() {
+		const { currMobileTabIndex } = this.state;
+
+		if (currMobileTabIndex < 5) {
+			this.setState({
+				currMobileTabIndex: currMobileTabIndex + 1,
+			});
+		}
+	}
 
 	render() {
 		const {
 			currTab,
-			currMobileTab,
+			currMobileTabIndex,
 			width,
 			height
 		} = this.state;
 
 		const isMobile = width < MOBILE_WIDTH;
-		let mobileNavHeight = 75;
-		let pageHeight = height - mobileNavHeight;
+		const mobileNavHeight = 75;
+		const pageHeight = height - mobileNavHeight;
+		const mobileTapeOffset = currMobileTabIndex * pageHeight;
 
 		return (
 			<div>
 				{
 					isMobile ? (
 						<MobileContainer>
-							<MobileNav currTab={currMobileTab} />
-							<MobileContent>
-								<MobileWelcome height={pageHeight} />
-								<MobileEducation height={pageHeight} />
-								<MobileExperience height={pageHeight} />
-								<MobileCoding height={pageHeight} />
-								<MobileDesign height={pageHeight} />
-								<MobileContact height={pageHeight} />
-							</MobileContent>
+							<MobileNav currTabIndex={currMobileTabIndex} />
+							<Swipe
+								onSwipeUp={this.onSwipeUp}
+								onSwipeDown={this.onSwipeDown}
+							>
+								<MobileContent height={pageHeight}>
+									<MobileTape offset={mobileTapeOffset}>
+										<MobileWelcome height={pageHeight} />
+										<MobileEducation height={pageHeight} />
+										<MobileExperience height={pageHeight} />
+										<MobileCoding height={pageHeight} />
+										<MobileDesign height={pageHeight} />
+										<MobileContact height={pageHeight} />
+									</MobileTape>
+								</MobileContent>
+							</Swipe>
 						</MobileContainer>
 					) : (
 						<Container>
@@ -195,11 +187,28 @@ const MobileContainer = styled.div`
 const MobileContent = styled.div`
 	display: flex;
 	flex: 1;
+	width: 100%;
+	margin: 75px 0 0 0;		/* MobileNav component is 75px tall */
+	position: relative;
+	overflow: hidden;
+
+	${({ height }) => `
+        height: ${height}px;
+    `}
+`;
+
+const MobileTape = styled.div`
+	display: flex;
 	flex-direction: column;
 	width: 100%;
 	justify-content: flex-start;
 	align-items: center;
-	margin: 75px 0 0 0;		/* MobileNav component is 75px tall */
+	position: absolute;
+	transition: top 0.4s;
+
+	${({ offset }) => `
+        top: -${offset}px;
+    `}
 `;
 
 const NavContainer = styled.div`

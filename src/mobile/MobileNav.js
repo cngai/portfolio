@@ -23,12 +23,12 @@ class MobileNav extends Component {
         this.handleResize();
         window.addEventListener('resize', this.handleResize);
 
-        let welcomeTab = document.getElementById('WelcomeTab');
-        let educationTab = document.getElementById('EducationTab');
-        let experienceTab = document.getElementById('ExperienceTab');
-        let codingTab = document.getElementById('CodingTab');
-        let designTab = document.getElementById('DesignTab');
-        let contactTab = document.getElementById('ContactTab');
+        const welcomeTab = document.getElementById('WelcomeTab');
+        const educationTab = document.getElementById('EducationTab');
+        const experienceTab = document.getElementById('ExperienceTab');
+        const codingTab = document.getElementById('CodingTab');
+        const designTab = document.getElementById('DesignTab');
+        const contactTab = document.getElementById('ContactTab');
 
         this.setState({
             welcomeTabWidth: welcomeTab.offsetWidth,
@@ -61,7 +61,7 @@ class MobileNav extends Component {
         });
     }
 
-    computeTapeOffset(currTab) {
+    computeTapeOffset(currTabIndex) {
         const {
             welcomeTabWidth,
             educationTabWidth,
@@ -78,16 +78,13 @@ class MobileNav extends Component {
         const designOffset = marginWidth + codingOffset + 0.5 * (codingTabWidth + designTabWidth);
         const contactOffset = marginWidth + designOffset + 0.5 * (designTabWidth + contactTabWidth);
 
-        let offsetDict = {
-            'Welcome': 0,
-            'Education': educationOffset,
-            'Experience': experienceOffset,
-            'Coding': codingOffset,
-            'Design': designOffset,
-            'Contact': contactOffset,
-        };
+        const offsetArr = [0, educationOffset, experienceOffset, codingOffset, designOffset, contactOffset];
 
-        return offsetDict[currTab];
+        console.log(welcomeTabWidth);
+        console.log(educationTabWidth);
+        console.log(offsetArr[currTabIndex]);
+
+        return offsetArr[currTabIndex];
     }
 
     handleResize() {
@@ -96,12 +93,30 @@ class MobileNav extends Component {
         });
     }
 
+    updateTabWidths() {
+        const welcomeTab = document.getElementById('WelcomeTab');
+        const educationTab = document.getElementById('EducationTab');
+        const experienceTab = document.getElementById('ExperienceTab');
+        const codingTab = document.getElementById('CodingTab');
+        const designTab = document.getElementById('DesignTab');
+        const contactTab = document.getElementById('ContactTab');
+
+        this.setState({
+            welcomeTabWidth: welcomeTab.offsetWidth,
+            educationTabWidth: educationTab.offsetWidth,
+            experienceTabWidth: experienceTab.offsetWidth,
+            codingTabWidth: codingTab.offsetWidth,
+            designTabWidth: designTab.offsetWidth,
+            contactTabWidth: contactTab.offsetWidth,
+        });
+    }
+
     render() {
-        const { currTab } = this.props;
+        const { currTabIndex } = this.props;
 
         const leftPadding = this.computeTabContainerMargins().leftPadding;
         const rightPadding = this.computeTabContainerMargins().rightPadding;
-        let tapeOffset = this.computeTapeOffset(currTab);
+        let tapeOffset = this.computeTapeOffset(currTabIndex);
 
         return (
             <NavContainer>
@@ -112,43 +127,43 @@ class MobileNav extends Component {
                 >
                     <NavText
                         id='WelcomeTab'
-                        currOpacity={currTab === 'Welcome' ? 1.0 : 0.4}
-                        currFontSize={currTab === 'Welcome' ? 30 : 20}
+                        currOpacity={currTabIndex === 0 ? 1.0 : 0.4}
+                        currFontSize={currTabIndex === 0 ? 30 : 30}
                     >
                         welcome
                     </NavText>
                     <NavText
                         id='EducationTab'
-                        currOpacity={currTab === 'Education' ? 1.0 : 0.4}
-                        currFontSize={currTab === 'Education' ? 30 : 20}
+                        currOpacity={currTabIndex === 1 ? 1.0 : 0.4}
+                        currFontSize={currTabIndex === 1 ? 30 : 30}
                     >
                         education
                     </NavText>
                     <NavText
                         id='ExperienceTab'
-                        currOpacity={currTab === 'Experience' ? 1.0 : 0.4}
-                        currFontSize={currTab === 'Experience' ? 30 : 20}
+                        currOpacity={currTabIndex === 2 ? 1.0 : 0.4}
+                        currFontSize={currTabIndex === 2 ? 30 : 30}
                     >
                         experience
                     </NavText>
                     <NavText
                         id='CodingTab'
-                        currOpacity={currTab === 'Coding' ? 1.0 : 0.4}
-                        currFontSize={currTab === 'Coding' ? 30 : 20}
+                        currOpacity={currTabIndex === 3 ? 1.0 : 0.4}
+                        currFontSize={currTabIndex === 3 ? 30 : 30}
                     >
                         coding
                     </NavText>
                     <NavText
                         id='DesignTab'
-                        currOpacity={currTab === 'Design' ? 1.0 : 0.4}
-                        currFontSize={currTab === 'Design' ? 30 : 20}
+                        currOpacity={currTabIndex === 4 ? 1.0 : 0.4}
+                        currFontSize={currTabIndex === 4 ? 30 : 30}
                     >
                         design
                     </NavText>
                     <NavText
                         id='ContactTab'
-                        currOpacity={currTab === 'Contact' ? 1.0 : 0.4}
-                        currFontSize={currTab === 'Contact' ? 30 : 20}
+                        currOpacity={currTabIndex === 5 ? 1.0 : 0.4}
+                        currFontSize={currTabIndex === 5 ? 30 : 30}
                     >
                         contact
                     </NavText>

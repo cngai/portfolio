@@ -87,8 +87,6 @@ class MobileExperience extends Component {
     }
 
     renderDescription(currExperience) {
-        const { currSelectorIndex } = this.state;
-
         let bullets = [];
 
         for (let i = 0; i < currExperience.description.length; i++) {

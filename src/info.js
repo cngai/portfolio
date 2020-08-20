@@ -57,6 +57,20 @@ const info = {
 
     projects: [
         {
+            'title': 'COVID-19 Stadium Tracker (in progress)',
+            'description': 'This web application\'s purpose is to accurately simulate & help visualize fan integration back into professional sporting events based on various factors including location, sport, and environmental conditions. It can also be scaled to provide insights into the risks & consequences of saturated events such as concerts & other entertainment events.',
+            'tech': 'Python, React',
+            'external_link': null,
+            'github_link': 'https://github.com/cngai/stadium-covid-tracker/tree/master/src/simulation',
+        },
+        {
+            'title': 'Shorttakes 2020',
+            'description': 'The Shorttakes Student Film Festival website served as a voting platform for UCLA students exclusively to vote on their favorite student-made film. The platform succesfully aggregated over 800 total votes in one week and attracted over 5,000 users.',
+            'tech': 'React, Cloud Firestore',
+            'external_link': 'https://uclacec.com/shorttakes',
+            'github_link': null,
+        },
+        {
             'title': 'Bruin Bash 2019',
             'description': 'I built this responsive web application for Campus Events Commission as a promotional website for UCLA’s largest campuswide concert, featuring DaBaby and Masego. The site hosted information including the concert lineup, ticketing details, and FAQ, attracting over 10,000 users.',
             'tech': 'React, Node, Express, KeystoneJS, DigitalOcean, MongoDB',
