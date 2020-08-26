@@ -80,10 +80,6 @@ class MobileNav extends Component {
 
         const offsetArr = [0, educationOffset, experienceOffset, codingOffset, designOffset, contactOffset];
 
-        console.log(welcomeTabWidth);
-        console.log(educationTabWidth);
-        console.log(offsetArr[currTabIndex]);
-
         return offsetArr[currTabIndex];
     }
 

@@ -12,16 +12,19 @@ class MobileExperience extends Component {
         this.state = {
             currSelectorIndex: 0,
             contentContainerWidth: 0,
+            infoTapeHeight: 0,
         };
 
         this.createExperienceSection = this.createExperienceSection.bind(this);
+        this.getTapeContainerHeight = this.getTapeContainerHeight.bind(this);
         this.onSwipeLeft = this.onSwipeLeft.bind(this);
         this.onSwipeRight = this.onSwipeRight.bind(this);
     }
 
     componentDidMount() {
-        let contentContainer = document.getElementById('ContentContainer');
-
+        const contentContainer = document.getElementById('ContentContainer');
+        setTimeout(this.getTapeContainerHeight, 1);
+        
         this.setState({
             contentContainerWidth: contentContainer.offsetWidth,
         });
@@ -64,6 +67,14 @@ class MobileExperience extends Component {
                 </UnorderedList>
             </InfoSlide>
         );
+    }
+
+    getTapeContainerHeight() {
+        const infoTape = document.getElementById('InfoTape');
+        
+        this.setState({
+            infoTapeHeight: infoTape.offsetHeight,
+        });
     }
 
     onSwipeLeft() {
@@ -126,7 +137,7 @@ class MobileExperience extends Component {
     }
 
     render() {
-        const { currSelectorIndex, contentContainerWidth } = this.state;
+        const { currSelectorIndex, contentContainerWidth, infoTapeHeight } = this.state;
         const { height } = this.props;
 
         const infoTapeOffset = currSelectorIndex * contentContainerWidth;
@@ -141,8 +152,8 @@ class MobileExperience extends Component {
                             onSwipeLeft={this.onSwipeLeft}
                             onSwipeRight={this.onSwipeRight}
                         >
-                            <InfoContainer width={contentContainerWidth}>
-                                <InfoTape offset={infoTapeOffset}>
+                            <InfoContainer width={contentContainerWidth} height={infoTapeHeight}>
+                                <InfoTape offset={infoTapeOffset} id='InfoTape'>
                                     {this.renderInfoTape()}
                                 </InfoTape>
                             </InfoContainer>
@@ -249,10 +260,10 @@ const InfoContainer = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    height: 228px;
     
-    ${({ width }) => `
+    ${({ width, height }) => `
         width: ${width}px;
+        height: ${height}px;
     `}
 `;
 
