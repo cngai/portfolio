@@ -12,14 +12,17 @@ class MobileEducation extends Component {
         this.state = {
             currSelectorIndex: 0,
             contentContainerWidth: 0,
+            listTapeHeight: 0,
         };
 
+        this.getTapeContainerHeight = this.getTapeContainerHeight.bind(this);
         this.onSwipeLeft = this.onSwipeLeft.bind(this);
         this.onSwipeRight = this.onSwipeRight.bind(this);
     }
 
     componentDidMount() {
         let contentContainer = document.getElementById('ContentContainer');
+        setTimeout(this.getTapeContainerHeight, 1); /* need to set timeout because offsetHeight is inaccurate immediately upon mounting */
 
         this.setState({
             contentContainerWidth: contentContainer.offsetWidth,
@@ -36,6 +39,14 @@ class MobileEducation extends Component {
             :
             <Dot key={idx} />
         );
+    }
+
+    getTapeContainerHeight() {
+        const listTape = document.getElementById('ListTape');
+        
+        this.setState({
+            listTapeHeight: listTape.offsetHeight,
+        });
     }
 
     onSwipeLeft() {
@@ -75,7 +86,11 @@ class MobileEducation extends Component {
     }
 
     render() {
-        const { currSelectorIndex, contentContainerWidth } = this.state;
+        const {
+            currSelectorIndex,
+            contentContainerWidth,
+            listTapeHeight,
+        } = this.state;
         const { height } = this.props;
 
         const classList = classes[currSelectorIndex];
@@ -109,8 +124,8 @@ class MobileEducation extends Component {
                             onSwipeLeft={this.onSwipeLeft}
                             onSwipeRight={this.onSwipeRight}
                         >
-                            <ListContainer width={contentContainerWidth}>
-                                <ListTape offset={listTapeOffset}>
+                            <ListContainer width={contentContainerWidth} height={listTapeHeight}>
+                                <ListTape offset={listTapeOffset} id='ListTape'>
                                     <ListSlide width={contentContainerWidth}>
                                         <UnorderedList>
                                             <ListText>{classList[0]}</ListText>
@@ -255,10 +270,10 @@ const ListContainer = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    height: 120px;
     
-    ${({ width }) => `
+    ${({ width, height }) => `
         width: ${width}px;
+        height: ${height}px;
     `}
 `;
 

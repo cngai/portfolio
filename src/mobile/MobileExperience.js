@@ -23,7 +23,7 @@ class MobileExperience extends Component {
 
     componentDidMount() {
         const contentContainer = document.getElementById('ContentContainer');
-        setTimeout(this.getTapeContainerHeight, 1);
+        setTimeout(this.getTapeContainerHeight, 1); /* need to set timeout because offsetHeight is inaccurate immediately upon mounting */
         
         this.setState({
             contentContainerWidth: contentContainer.offsetWidth,
