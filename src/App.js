@@ -26,7 +26,7 @@ class App extends Component {
 
 		this.state = {
 			currTab: 'Welcome',
-			currMobileTabIndex: 0,
+			currMobileTabIndex: 4,
 			width: 0,
 			height: 0,
 		}

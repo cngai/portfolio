@@ -96,7 +96,7 @@ class Design extends Component {
 
     renderRow(rowNum) {
         let gridItems = [];
-        let numCategories = designs.length;
+        const numCategories = designs.length;
 
         /* top row */
         if (rowNum === 0) {
