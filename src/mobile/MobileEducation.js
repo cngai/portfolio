@@ -300,7 +300,7 @@ const ListTape = styled.div`
 const ListText = styled.li`
     @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
     font-family: 'Roboto', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     color: #000000;
     letter-spacing: 2px;
     line-height: 2.0;
