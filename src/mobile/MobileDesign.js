@@ -32,13 +32,15 @@ class MobileDesign extends Component {
         }
         
         return (
-            <GridItem key={idx} color={color} >
-                {
-                    isActive && (
-                        <GridText>{designs.title.toUpperCase()}</GridText>
-                    )
-                }
-            </GridItem>
+            <a key={idx} href={isActive ? designs.external_link : null} target='_blank' style={{'textDecoration': 'none'}}>
+                <GridItem color={color} >
+                    {
+                        isActive && (
+                            <GridText>{designs.title.toUpperCase()}</GridText>
+                        )
+                    }
+                </GridItem>
+            </a>
         );
     }
 

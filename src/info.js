@@ -103,120 +103,28 @@ const info = {
     designs: [
         {
             'title': 'Adobe',
-            'photos': [
-                {
-                    'url': '/assets/designs/adobe/adobe-0.png',
-                    'description': 'Front of elevator execution for Adobe campaign 2020'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-1.png',
-                    'description': 'Back of elevator execution'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-2.png',
-                    'description': 'Out-of-home elevator execution'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-3.png',
-                    'description': 'Rube Goldberg machine at Adobe trade show'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227053/Adobe-Campaign-2019-20',
+            'thumbnail': '/assets/thumbnails/adobe.png',
         },
         {
             'title': 'Wienerschnitzel',
-            'photos': [
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-0.png',
-                    'description': 'Missing poster for Wienerschnitzel campaign 2019'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-1.png',
-                    'description': 'Wild postings'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-2.png',
-                    'description': 'Bus stop ad'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-3.png',
-                    'description': 'Hulu interactive ad'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-4.png',
-                    'description': 'Eat and Greet with Chrissy Teigen'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227209/Wienerschnitzel-Campaign-2018-19',
+            'thumbnail': '/assets/thumbnails/ws.png',
         },
         {
             'title': 'Ocean Spray',
-            'photos': [
-                {
-                    'url': '/assets/designs/ocean_spray/os-0.png',
-                    'description': '6-second video thumnbail for Ocean Spray campaign 2018'
-                },
-                {
-                    'url': '/assets/designs/ocean_spray/os-1.png',
-                    'description': 'Ocean Spray juice stand in Target'
-                },
-                {
-                    'url': '/assets/designs/ocean_spray/os-2.png',
-                    'description': 'Charitable partnership with food banks'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227373/Ocean-Spray-Campaign-2017-18',
+            'thumbnail': '/assets/thumbnails/os.png',
         },
         {
             'title': 'AdTeam',
-            'photos': [
-                {
-                    'url': '/assets/designs/flyers/flyers-0.png',
-                    'description': '3-D AdTeam flyer 2019-2020'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-1.png',
-                    'description': 'Anaglyphic AdTeam flyer 2019-2020'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-2.png',
-                    'description': 'AdTeam flyer 2018-2019 #1'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-3.png',
-                    'description': 'AdTeam flyer 2018-2019 #2'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-4.png',
-                    'description': 'AdTeam flyer 2018-2019 #3'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227465/Flyers',
+            'thumbnail': '/assets/thumbnails/flyers.png',
         },
         {
             'title': 'Misc',
-            'photos': [
-                {
-                    'url': '/assets/designs/misc/misc-0.png',
-                    'description': 'Gatorade redesign ad for AdTeam application'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-1.png',
-                    'description': 'Pikapp Fall 2018 rush FB banner'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-2.png',
-                    'description': 'Minimalistic tattoo design based on childhood photo'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-3.png',
-                    'description': 'Keith Haring-inspired CEC logo'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-4.png',
-                    'description': 'Black & white Michael Phelps acrylic painting'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-5.png',
-                    'description': 'Banksy-inspired soldier acrylic painting'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227497/Miscellaneous-Designs',
+            'thumbnail': '/assets/thumbnails/misc.png',
         },
     ],
 

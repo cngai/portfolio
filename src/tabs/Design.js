@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import info from '../info';
 
-import Modal from '../components/Modal';
-
 const designs = info.designs;
 
 class Design extends Component {
@@ -11,39 +9,8 @@ class Design extends Component {
         super(props);
 
         this.state = {
-            width: 0,
-            height: 0,
-            topOffset: 0,
-            leftOffset: 0,
-            isModalOpen: false,
-            selectedDesign: designs[0],
+
         };
-
-        this.closeModal = this.closeModal.bind(this);
-        this.openModal = this.openModal.bind(this);
-        this.resize = this.handleResize.bind(this);
-    }
-
-    componentDidMount() {
-        let modalContainer = document.getElementById('DesignContainer');
-
-        this.setState({
-            topOffset: modalContainer.offsetTop,
-            leftOffset: modalContainer.offsetLeft,
-        });
-        
-        this.handleResize();
-        window.addEventListener("resize", this.resize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.resize);
-    }
-
-    closeModal() {
-        this.setState({
-            isModalOpen: false,
-        });
     }
 
     createGridItem(designObj) {
@@ -53,45 +20,29 @@ class Design extends Component {
         let isActive = (designs !== null);
 
         return (
-            <GridItemContainer
-                key={idx}
-                isActive={isActive}
-                onClick={isActive ? () => this.openModal(idx) : null}
-            >
-                <GridItem color={color} isActive={isActive}>
+            <a key={idx} href={isActive ? designs.external_link : null} target='_blank' style={{'textDecoration': 'none'}}>
+                <GridItemContainer isActive={isActive}>
+                    <GridItem color={color} isActive={isActive}>
+                        {
+                            isActive && (
+                                <GridText overImage={false}>{designs.title.toUpperCase()}</GridText>
+                            )
+                        }
+                    </GridItem>
+                    {/* keep GridText and GridPhoto separate for purpose of GridPhoto being positioned in reference to GridItemContainer */}
                     {
                         isActive && (
-                            <GridText overImage={false}>{designs.title.toUpperCase()}</GridText>
+                            <GridText overImage={true}>{designs.title.toUpperCase()}</GridText>
                         )
                     }
-                </GridItem>
-                {/* keep GridText and GridPhoto separate for purpose of GridPhoto being positioned in reference to GridItemContainer */}
-                {
-                    isActive && (
-                        <GridText overImage={true}>{designs.title.toUpperCase()}</GridText>
-                    )
-                }
-                {
-                    isActive && (
-                        <GridPhoto src={designs.photos[0].url} />
-                    )
-                }
-            </GridItemContainer>
+                    {
+                        isActive && (
+                            <GridPhoto src={designs.thumbnail} />
+                        )
+                    }
+                </GridItemContainer>
+            </a>
         );
-    }
-
-    handleResize() {
-        this.setState({
-            width: window.innerWidth,
-            height: window.innerHeight,
-        });
-    }
-
-    openModal(idx) {
-        this.setState({
-            isModalOpen: true,
-            selectedDesign: designs[idx],
-        });
     }
 
     renderRow(rowNum) {
@@ -163,13 +114,6 @@ class Design extends Component {
     }
 
     render() {
-        const {
-            isModalOpen,
-            topOffset,
-            leftOffset,
-            selectedDesign
-        } = this.state;
-
         return (
             <DesignContainer id='DesignContainer'>
                 <HeaderText>Things I've Designed:</HeaderText>
@@ -184,19 +128,6 @@ class Design extends Component {
                         </Row>
                     </GridContainer>
                 </BodyContainer>
-                <ModalContainer
-                    topOffset={topOffset}
-                    leftOffset={leftOffset}
-                >
-                    {
-                        isModalOpen && (
-                            <Modal
-                                onClose={this.closeModal}
-                                designs={selectedDesign}
-                            />
-                        )
-                    }
-                </ModalContainer>
             </DesignContainer>
         );
     }
@@ -294,8 +225,7 @@ const GridText = styled.p`
 
     ${({ overImage }) => overImage && `
         text-shadow: 0px 0px 10px #000000;
-    `}
-        
+    `}     
 `;
 
 const HeaderText = styled.p`
@@ -306,16 +236,6 @@ const HeaderText = styled.p`
     color: #000000;
     letter-spacing: 2px;
     margin: 20px 0 20px 0;
-`;
-
-const ModalContainer = styled.div`
-    position: absolute;
-    z-index: 3;
-
-    ${({ topOffset, leftOffset }) => `
-        top: -${topOffset}px;
-        left: -${leftOffset}px;
-    `}
 `;
 
 const Row = styled.div`

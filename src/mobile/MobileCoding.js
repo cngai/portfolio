@@ -82,9 +82,12 @@ class MobileCoding extends Component {
     getTapeContainerHeight() {
         const infoTape = document.getElementById('InfoSlide0'); /* have to use InfoSlide0 instead of InfoTape b/c offsetHeight is incorrect for some reason */
         
-        this.setState({
-            infoTapeHeight: infoTape.offsetHeight,
-        });
+        /* infoTape is null if not mobile */
+        if (infoTape) {
+            this.setState({
+                infoTapeHeight: infoTape.offsetHeight,
+            });
+        }
     }
 
     onSwipeLeft() {

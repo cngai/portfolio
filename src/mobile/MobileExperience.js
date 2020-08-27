@@ -72,9 +72,12 @@ class MobileExperience extends Component {
     getTapeContainerHeight() {
         const infoTape = document.getElementById('InfoTape');
         
-        this.setState({
-            infoTapeHeight: infoTape.offsetHeight,
-        });
+        /* infoTape is null if not mobile */
+        if (infoTape) {
+            this.setState({
+                infoTapeHeight: infoTape.offsetHeight,
+            });
+        }
     }
 
     onSwipeLeft() {

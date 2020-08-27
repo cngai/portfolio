@@ -44,9 +44,12 @@ class MobileEducation extends Component {
     getTapeContainerHeight() {
         const listTape = document.getElementById('ListTape');
         
-        this.setState({
-            listTapeHeight: listTape.offsetHeight,
-        });
+        /* listTape is null if not mobile */
+        if (listTape) {
+            this.setState({
+                listTapeHeight: listTape.offsetHeight,
+            });
+        }
     }
 
     onSwipeLeft() {

@@ -78,8 +78,6 @@ class App extends Component {
 	onSwipeDown() {
 		const { currMobileTabIndex, allowVerticalSwipe } = this.state;
 
-		console.log(allowVerticalSwipe);
-
 		if (allowVerticalSwipe && currMobileTabIndex > 0) {
 			this.setState({
 				currMobileTabIndex: currMobileTabIndex - 1,
@@ -90,8 +88,6 @@ class App extends Component {
 	
 	onSwipeUp() {
 		const { currMobileTabIndex, allowVerticalSwipe } = this.state;
-
-		console.log(allowVerticalSwipe);
 
 		if (allowVerticalSwipe && currMobileTabIndex < 5) {
 			this.setState({
