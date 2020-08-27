@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Swipe from 'react-easy-swipe';
 
 import Nav from './components/Nav';
@@ -37,6 +37,7 @@ class App extends Component {
 		this.onSwipeMove = this.onSwipeMove.bind(this);
 		this.onSwipeDown = this.onSwipeDown.bind(this);
 		this.onSwipeUp = this.onSwipeUp.bind(this);
+		this.scrollToTop = this.scrollToTop.bind(this);
 	}
 
 	componentDidMount() {
@@ -100,6 +101,12 @@ class App extends Component {
 		}
 	}
 
+	scrollToTop() {
+		this.setState({
+			currMobileTabIndex: 0,
+		});
+	}
+
 	render() {
 		const {
 			currTab,
@@ -136,6 +143,15 @@ class App extends Component {
 									</MobileTape>
 								</MobileContent>
 							</Swipe>
+							<div>
+								{
+									currMobileTabIndex !== 0 && (
+										<BackToTopContainer onClick={this.scrollToTop}>
+											<BackToTopText>back<br />to top</BackToTopText>
+										</BackToTopContainer>
+									)
+								}
+							</div>
 						</MobileContainer>
 					) : (
 						<Container>
@@ -184,10 +200,41 @@ class App extends Component {
 	}
 }
 
+const fadeIn = keyframes`
+    0% { opacity: 0; }
+	100% { opacity: 1; }
+`;
+
 const Container = styled.div`
 	display: flex;
 	flex-direction: row;
 	height: 100vh;
+`;
+
+const BackToTopContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: cente;r
+	width: 90px;
+	position: fixed;
+	background-color: #D0E3F4;
+	right: 0px;
+	bottom: 15px;
+	padding: 10px 0 10px 10px;
+	box-shadow: 5px 0px 20px 5px grey;
+	-webkit-animation: ${fadeIn} ease 0.4s;
+	animation: ${fadeIn} ease 0.4s;
+`;
+
+const BackToTopText = styled.p`
+	@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    margin: 0 10px 0 0;
+	text-align: right;
 `;
 
 const InfoContainer = styled.div`

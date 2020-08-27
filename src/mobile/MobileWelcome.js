@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const githubFilled = '/assets/github-filled.png';
 const linkedinFilled = '/assets/linkedin-filled.png';
 const mailFilled = '/assets/mail-filled.png';
+const downArrow = '/assets/down.png';
 
 class MobileWelcome extends Component {
     constructor(props) {
@@ -39,10 +40,17 @@ class MobileWelcome extends Component {
                         </a>
                     </IconContainer>
                 </ContentContainer>
+                <DownArrow src={downArrow} />
             </WelcomeContainer>
         );
     }
 }
+
+const flash = keyframes`
+    0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+`;
 
 const WelcomeContainer = styled.div`
     display: flex;
@@ -51,6 +59,7 @@ const WelcomeContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
+    position: relative;
 
     ${({ height }) => `
         height: ${height}px;
@@ -77,6 +86,14 @@ const Divider = styled.div`
 	width: 65px;
 	height: 0;
 	border-top: 5px solid #D0E3F4;
+`;
+
+const DownArrow = styled.img`
+    height: 35px;
+    position: absolute;
+    bottom: 15px;
+    -webkit-animation: flash linear 2s infinite;
+	animation: ${flash} linear 2s infinite;
 `;
 
 const HeaderText = styled.p`
