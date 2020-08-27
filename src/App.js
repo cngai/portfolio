@@ -26,13 +26,15 @@ class App extends Component {
 
 		this.state = {
 			currTab: 'Welcome',
-			currMobileTabIndex: 4,
+			currMobileTabIndex: 0,
 			width: 0,
 			height: 0,
+			allowVerticalSwipe: false,
 		}
 
 		this.changeTab = this.changeTab.bind(this);
 		this.handleResize = this.handleResize.bind(this);
+		this.onSwipeMove = this.onSwipeMove.bind(this);
 		this.onSwipeDown = this.onSwipeDown.bind(this);
 		this.onSwipeUp = this.onSwipeUp.bind(this);
 	}
@@ -60,22 +62,40 @@ class App extends Component {
         });
 	}
 
-	onSwipeDown() {
-		const { currMobileTabIndex } = this.state;
+	/* only allow vertical swipe if the vertical dispositon is greater than the verticalSwipeSensitivity value */
+	onSwipeMove(position) {
+		const verticalSwipeSensitivity = 20; // defines the vertical disposition leeway (in pixels)
+		const amountScrolled = Math.abs(position.y);
+		
+		if (amountScrolled >= verticalSwipeSensitivity) {
+			this.setState({
+				allowVerticalSwipe: true,
+			});
+		}
+	}
 
-		if (currMobileTabIndex > 0) {
+	onSwipeDown() {
+		const { currMobileTabIndex, allowVerticalSwipe } = this.state;
+
+		console.log(allowVerticalSwipe);
+
+		if (allowVerticalSwipe && currMobileTabIndex > 0) {
 			this.setState({
 				currMobileTabIndex: currMobileTabIndex - 1,
+				allowVerticalSwipe: false,
 			});
 		}
 	}
 	
 	onSwipeUp() {
-		const { currMobileTabIndex } = this.state;
+		const { currMobileTabIndex, allowVerticalSwipe } = this.state;
 
-		if (currMobileTabIndex < 5) {
+		console.log(allowVerticalSwipe);
+
+		if (allowVerticalSwipe && currMobileTabIndex < 5) {
 			this.setState({
 				currMobileTabIndex: currMobileTabIndex + 1,
+				allowVerticalSwipe: false,
 			});
 		}
 	}
@@ -102,6 +122,8 @@ class App extends Component {
 							<Swipe
 								onSwipeUp={this.onSwipeUp}
 								onSwipeDown={this.onSwipeDown}
+								onSwipeMove={this.onSwipeMove}
+								allowMouseEvents={true}
 							>
 								<MobileContent height={pageHeight}>
 									<MobileTape offset={mobileTapeOffset}>

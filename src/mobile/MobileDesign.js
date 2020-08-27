@@ -10,8 +10,8 @@ class MobileDesign extends Component {
 
         this.state = {
 
-        };
-    }
+        }
+    };
 
     createGridItem(designObj) {
         const {
@@ -69,7 +69,6 @@ class MobileDesign extends Component {
                 }
             } else {
                 for (let k = 0; k < numTiles; k += 2) {
-                    console.log(k);
                     gridItems.push({
                         'designs': designs[k],
                         'idx': k,

@@ -183,7 +183,7 @@ const NavTape = styled.div`
     display: flex;
     flex-direction: row;
     position: absolute;
-    transition: left 1s;
+    transition: left 0.4s;
     justify-content: center;
     align-items: center;
     
