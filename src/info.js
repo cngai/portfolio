@@ -17,12 +17,14 @@ const info = {
     experiences: [
         {
             'position': 'Digital Analyst',
-            'time': 'Fall 2020 - Present',
+            'company_name': 'Accenture',
+            'time': 'Winter 2021 - Present',
             'description': ['Will be utilizing modern technologies including artificial intelligence, mobile apps, advanced analytics, and cloud computing to help businesses prosper through digital experiences'],
             'link': 'https://www.accenture.com/us-en',
         },
         {
             'position': 'SWE Intern',
+            'company_name': 'Modern Animal',
             'time': 'June 2019 - September 2019',
             'description': ['Engaged in scrum methodology as a full stack developer to help create web and mobile tools for technologically-driven veterinary care startup',
             'Exploited internal and external APIs to build features including medical record sharing via email, SMS notifications, and membership cancellation feedback collection'],
@@ -30,6 +32,7 @@ const info = {
         },
         {
             'position': 'Web Dev Director',
+            'company_name': 'CEC',
             'time': 'October 2017 - June 2020',
             'description': ['Managed team of 10 software developers who create web/mobile applications to maximize online marketing efficiency and promote on-campus entertainment events',
             'Developed Bruin Bash 2019 promotional website that served as a central platform for UCLA students to gain information and obtain tickets for school-wide concert'],
@@ -37,6 +40,7 @@ const info = {
         },
         {
             'position': 'Graphic Designer',
+            'company_name': 'Bruin AdTeam',
             'time': 'October 2017 - June 2020',
             'description': ['Revitalized UI/UX design of Wienerschnitzel and Ocean Spray website to create responsive and interactive presentation of products and company background',
             'Created expressive and professional look for marketing strategy book and Keynote presentation'],
@@ -44,6 +48,7 @@ const info = {
         },
         {
             'position': 'Frontend Developer',
+            'company_name': 'Creative Labs',
             'time': 'October 2018 - December 2018',
             'description': ['Collaborated with team of developers and designers in production of Color, an artistic web application that transforms drawings into various sounds from several different instruments'],
             'link': 'https://www.creativelabsucla.com/',
@@ -51,6 +56,20 @@ const info = {
     ],
 
     projects: [
+        {
+            'title': 'COVID-19 Stadium Tracker (in progress)',
+            'description': 'This web application\'s accurately simulates & helps visualize fan integration back into professional sporting events based on various factors including location, sport, and environmental conditions. It can also be scaled to provide insights into the risks & consequences of hosting saturated events such as concerts & other entertainment events.',
+            'tech': 'Python, React',
+            'external_link': null,
+            'github_link': 'https://github.com/cngai/stadium-covid-tracker/tree/master/src/simulation',
+        },
+        {
+            'title': 'Shorttakes 2020',
+            'description': 'The Shorttakes Student Film Festival website served as a voting platform for UCLA students exclusively to vote on their favorite student-made film. The platform succesfully aggregated over 800 total votes in one week and attracted over 5,000 users.',
+            'tech': 'React, Cloud Firestore',
+            'external_link': 'https://uclacec.com/shorttakes',
+            'github_link': null,
+        },
         {
             'title': 'Bruin Bash 2019',
             'description': 'I built this responsive web application for Campus Events Commission as a promotional website for UCLA’s largest campuswide concert, featuring DaBaby and Masego. The site hosted information including the concert lineup, ticketing details, and FAQ, attracting over 10,000 users.',
@@ -84,120 +103,28 @@ const info = {
     designs: [
         {
             'title': 'Adobe',
-            'photos': [
-                {
-                    'url': '/assets/designs/adobe/adobe-0.png',
-                    'description': 'Front of elevator execution for Adobe campaign 2020'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-1.png',
-                    'description': 'Back of elevator execution'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-2.png',
-                    'description': 'Out-of-home elevator execution'
-                },
-                {
-                    'url': '/assets/designs/adobe/adobe-3.png',
-                    'description': 'Rube Goldberg machine at Adobe trade show'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227053/Adobe-Campaign-2019-20',
+            'thumbnail': '/assets/thumbnails/adobe.png',
         },
         {
             'title': 'Wienerschnitzel',
-            'photos': [
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-0.png',
-                    'description': 'Missing poster for Wienerschnitzel campaign 2019'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-1.png',
-                    'description': 'Wild postings'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-2.png',
-                    'description': 'Bus stop ad'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-3.png',
-                    'description': 'Hulu interactive ad'
-                },
-                {
-                    'url': '/assets/designs/wienerschnitzel/ws-4.png',
-                    'description': 'Eat and Greet with Chrissy Teigen'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227209/Wienerschnitzel-Campaign-2018-19',
+            'thumbnail': '/assets/thumbnails/ws.png',
         },
         {
             'title': 'Ocean Spray',
-            'photos': [
-                {
-                    'url': '/assets/designs/ocean_spray/os-0.png',
-                    'description': '6-second video thumnbail for Ocean Spray campaign 2018'
-                },
-                {
-                    'url': '/assets/designs/ocean_spray/os-1.png',
-                    'description': 'Ocean Spray juice stand in Target'
-                },
-                {
-                    'url': '/assets/designs/ocean_spray/os-2.png',
-                    'description': 'Charitable partnership with food banks'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227373/Ocean-Spray-Campaign-2017-18',
+            'thumbnail': '/assets/thumbnails/os.png',
         },
         {
             'title': 'AdTeam',
-            'photos': [
-                {
-                    'url': '/assets/designs/flyers/flyers-0.png',
-                    'description': '3-D AdTeam flyer 2019-2020'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-1.png',
-                    'description': 'Anaglyphic AdTeam flyer 2019-2020'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-2.png',
-                    'description': 'AdTeam flyer 2018-2019 #1'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-3.png',
-                    'description': 'AdTeam flyer 2018-2019 #2'
-                },
-                {
-                    'url': '/assets/designs/flyers/flyers-4.png',
-                    'description': 'AdTeam flyer 2018-2019 #3'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227465/Flyers',
+            'thumbnail': '/assets/thumbnails/flyers.png',
         },
         {
             'title': 'Misc',
-            'photos': [
-                {
-                    'url': '/assets/designs/misc/misc-0.png',
-                    'description': 'Gatorade redesign ad for AdTeam application'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-1.png',
-                    'description': 'Pikapp Fall 2018 rush FB banner'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-2.png',
-                    'description': 'Minimalistic tattoo design based on childhood photo'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-3.png',
-                    'description': 'Keith Haring-inspired CEC logo'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-4.png',
-                    'description': 'Black & white Michael Phelps acrylic painting'
-                },
-                {
-                    'url': '/assets/designs/misc/misc-5.png',
-                    'description': 'Banksy-inspired soldier acrylic painting'
-                },
-            ],
+            'external_link': 'https://www.behance.net/gallery/103227497/Miscellaneous-Designs',
+            'thumbnail': '/assets/thumbnails/misc.png',
         },
     ],
 

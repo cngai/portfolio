@@ -120,7 +120,6 @@ class Education extends Component {
                                         <ListText>{selectedClasses[5]}</ListText>
                                     )
                                 }
-                                
                             </UnorderedList>
                         </Column>
                     </ListContainer>

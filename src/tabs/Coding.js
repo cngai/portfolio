@@ -269,7 +269,7 @@ const InfoContainer = styled.div`
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    height: 262px;
+    height: 286px;
     width: 571px;
 `;
 
@@ -284,13 +284,13 @@ const LeftArrowContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     position: absolute;
-    height: 120px;
+    height: 144px;
     left: -69px;
     margin-top: 63px;
 `;
 
 const ProjectSection = styled.div`
-    height: 262px;
+    height: 286;
     width: 571px;
 `;
 
@@ -315,7 +315,7 @@ const RightArrowContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 120px;
+    height: 144px;
     margin-top: 63px;
 `;
 
@@ -340,7 +340,7 @@ const TechText = styled.p`
 `;
 
 const TextContainer = styled.div`
-    height: 120px;
+    height: 144px;
 `;
 
 export default Coding;
