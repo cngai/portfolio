@@ -177,6 +177,7 @@ const NavContainer = styled.div`
     overflow-x: hidden;
     position: fixed;
     height: 75px;
+    z-index: 1;
 `;
 
 const NavTape = styled.div`

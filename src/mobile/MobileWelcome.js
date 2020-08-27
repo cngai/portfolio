@@ -92,7 +92,7 @@ const DownArrow = styled.img`
     height: 35px;
     position: absolute;
     bottom: 15px;
-    -webkit-animation: flash linear 2s infinite;
+    -webkit-animation: ${flash} linear 2s infinite;
 	animation: ${flash} linear 2s infinite;
 `;
 
