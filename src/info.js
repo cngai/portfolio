@@ -65,7 +65,7 @@ const info = {
         },
         {
             'title': 'Shorttakes 2020',
-            'description': 'The Shorttakes Student Film Festival website served as a voting platform for UCLA students exclusively to vote on their favorite student-made film. The platform succesfully aggregated over 800 total votes in one week and attracted over 5,000 users.',
+            'description': 'The Shorttakes Student Film Festival website served as a voting platform for UCLA students exclusively to vote on their favorite student-made film. The platform successfully aggregated over 800 total votes in one week and attracted over 5,000 users.',
             'tech': 'React, Cloud Firestore',
             'external_link': 'https://uclacec.com/shorttakes',
             'github_link': null,
