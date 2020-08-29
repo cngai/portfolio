@@ -58,7 +58,7 @@ const info = {
     projects: [
         {
             'title': 'COVID-19 Stadium Tracker (in progress)',
-            'description': 'This web application\'s accurately simulates & helps visualize fan integration back into professional sporting events based on various factors including location, sport, and environmental conditions. It can also be scaled to provide insights into the risks & consequences of hosting saturated events such as concerts & other entertainment events.',
+            'description': 'This web application accurately simulates & helps visualize fan integration back into professional sporting events based on various factors including location, sport, and environmental conditions. It can also be scaled to provide insights into the risks & consequences of hosting saturated events such as concerts & other entertainment events.',
             'tech': 'Python, React',
             'external_link': null,
             'github_link': 'https://github.com/cngai/stadium-covid-tracker/tree/master/src/simulation',
