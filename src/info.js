@@ -16,19 +16,19 @@ const info = {
 
     experiences: [
         {
-            'position': 'Digital Analyst',
-            'company_name': 'Accenture',
-            'time': 'Winter 2021 - Present',
-            'description': ['Will be utilizing modern technologies including artificial intelligence, mobile apps, advanced analytics, and cloud computing to help businesses prosper through digital experiences'],
-            'link': 'https://www.accenture.com/us-en',
-        },
-        {
-            'position': 'SWE Intern',
+            'position': 'Software Engineer',
             'company_name': 'Modern Animal',
-            'time': 'June 2019 - September 2019',
-            'description': ['Engaged in scrum methodology as a full stack developer to help create web and mobile tools for technologically-driven veterinary care startup',
+            'time': 'September 2020 - Present',
+            'description': ['Creating web and mobile tools for technologically-driven veterinary care startup',
             'Exploited internal and external APIs to build features including medical record sharing via email, SMS notifications, and membership cancellation feedback collection'],
             'link': 'https://www.modernanimal.com/',
+        },
+        {
+            'position': 'Digital Analyst',
+            'company_name': 'Accenture',
+            'time': 'Starting Feb 2021',
+            'description': ['Will be utilizing modern technologies including artificial intelligence, mobile apps, advanced analytics, and cloud computing to help businesses prosper through digital experiences'],
+            'link': 'https://www.accenture.com/us-en',
         },
         {
             'position': 'Web Dev Director',
