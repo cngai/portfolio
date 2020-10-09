@@ -9,7 +9,7 @@ class Experience extends Component {
         super(props);
 
         this.state = {
-            selectedTab: 'Accenture',
+            selectedTab: 'Modern Animal',
             sliderHeight: 0,
         };
 
