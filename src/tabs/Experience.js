@@ -54,9 +54,9 @@ class Experience extends Component {
     tabToIndex(tabName) {
         let index = -1;
 
-        if (tabName === 'Accenture') {
+        if (tabName === 'Modern Animal') {
             index = 0;
-        } else if (tabName === 'Modern Animal') {
+        } else if (tabName === 'Accenture') {
             index = 1;
         } else if (tabName === 'CEC') {
             index = 2;
@@ -83,16 +83,16 @@ class Experience extends Component {
                     <FilterContainer>
                         <Sidebar offset={sliderHeight} />
                         <Tab
+                            selected={selectedTab === 'Modern Animal'}
+                            onClick={() => this.changeTab('ModernAnimal')}
+                        >
+                            <TabText selected={selectedTab === 'Modern Animal'}>modern animal</TabText>
+                        </Tab>
+                        <Tab
                             selected={selectedTab === 'Accenture'}
                             onClick={() => this.changeTab('Accenture')}
                         >
                             <TabText selected={selectedTab === 'Accenture'}>accenture</TabText>
-                        </Tab>
-                        <Tab
-                            selected={selectedTab === 'Modern Animal'}
-                            onClick={() => this.changeTab('Modern Animal')}
-                        >
-                            <TabText selected={selectedTab === 'Modern Animal'}>modern animal</TabText>
                         </Tab>
                         <Tab
                             selected={selectedTab === 'CEC'}
