@@ -84,7 +84,7 @@ class Experience extends Component {
                         <Sidebar offset={sliderHeight} />
                         <Tab
                             selected={selectedTab === 'Modern Animal'}
-                            onClick={() => this.changeTab('ModernAnimal')}
+                            onClick={() => this.changeTab('Modern Animal')}
                         >
                             <TabText selected={selectedTab === 'Modern Animal'}>modern animal</TabText>
                         </Tab>
